@@ -1126,7 +1126,7 @@ body {
 
 <!-- TOPBAR -->
 <div class="topbar">
-  <a href="biscalab_v2.html" class="topbar-logo">BISCA<span>LAB</span></a>
+  <a href="/index.html" class="topbar-logo">BISCA<span>LAB</span></a>
   <div class="topbar-sep"></div>
   <span class="topbar-title">Bangkok Assistant</span>
   <div class="topbar-right">
@@ -1202,7 +1202,7 @@ body {
       <div class="consult-card">
         <div class="consult-label">Bisogno di più?</div>
         <p class="consult-text">Prenota una sessione 1:1 con Bisca per una consulenza personalizzata.</p>
-        <button class="consult-btn" onclick="showUpgrade('consulenze')">Prenota ora →</button>
+        <button class="consult-btn" onclick="window.open('https://calendly.com/bisca','_blank')">Prenota ora →</button>
       </div>
     </div>
   </div>
@@ -1632,7 +1632,7 @@ Se la domanda richiede una valutazione personale approfondita, suggerisci la con
         const msgs = document.getElementById('chat-messages');
         const d = document.createElement('div');
         d.className = 'msg bot';
-        d.innerHTML = `<button class="qr" onclick="showUpgrade('consulenze')" style="border-color:var(--gold);color:var(--gold)">📅 Prenota una consulenza con Bisca →</button>`;
+        d.innerHTML = `<a href="https://calendly.com/bisca" target="_blank" class="chat-cta-btn">📅 Prenota una consulenza con Bisca →</a>`;
         msgs.appendChild(d);
         msgs.scrollTop = msgs.scrollHeight;
       }, 400);
