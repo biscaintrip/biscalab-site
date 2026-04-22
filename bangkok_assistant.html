@@ -1595,7 +1595,7 @@ Messaggi usati: ${msgCount}/${MAX_FREE} (gratuito: ${!isPremium})
 Se la domanda richiede una valutazione personale approfondita, suggerisci la consulenza giusta in modo naturale. Non essere aggressivo nella vendita.`;
 
   try {
-    const res = await fetch('https://biscalab-api2.vercel.app/api/chat', {
+    const res = await fetch('/api/chat', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -1837,7 +1837,7 @@ async function transcribeAudio(audioBlob) {
     formData.append('model', 'whisper-1');
     formData.append('language', 'it');
 
-    const res = await fetch('https://biscalab-api2.vercel.app/api/transcribe', {
+    const res = await fetch('/api/transcribe', {
       method: 'POST',
       body: formData
     });
@@ -1866,7 +1866,7 @@ async function transcribeAudio(audioBlob) {
       showTypingIndicator();
 
       const sys = `Sei l'assistente AI di Bisca (BiscaLab). Rispondi in italiano, tono diretto e concreto. Max 3 paragrafi.`;
-      const aiRes = await fetch('https://biscalab-api2.vercel.app/api/chat', {
+      const aiRes = await fetch('/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ system: sys, messages: chatHistory })
@@ -1920,7 +1920,7 @@ async function startCheckout() {
   btn.disabled = true;
 
   try {
-    const res = await fetch('https://biscalab-api2.vercel.app/api/checkout', {
+    const res = await fetch('/api/checkout', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
