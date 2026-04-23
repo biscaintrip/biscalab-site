@@ -1555,6 +1555,9 @@ function updateMsgCounter() {
 }
 
 async function sendMessage(text) {
+  if (text === '__upgrade__') { showUpgrade('general'); return; }
+  if (text === '__maps__') { switchView('maps', document.querySelectorAll('.nav-item')[1]); return; }
+  if (text === '__chat__') { return; }
   if (!text.trim() || isTyping) return;
 
   // Check free limit
@@ -1645,13 +1648,6 @@ Se la domanda richiede una valutazione personale approfondita, suggerisci la con
 
   isTyping = false;
   sendBtn.disabled = false;
-}
-
-// Handle __upgrade__ special message
-const origSend = sendMessage;
-async function sendMessage(text) {
-  if (text === '__upgrade__') { showUpgrade('general'); return; }
-  await origSend(text);
 }
 
 // ── INPUT HANDLERS ──
@@ -1959,14 +1955,6 @@ function switchView(name, navEl) {
   document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
   document.getElementById(`view-${name}`).classList.add('active');
   if (navEl) navEl.classList.add('active');
-}
-
-// Handle special vals
-async function sendMessage(text) {
-  if (text === '__upgrade__') { showUpgrade('general'); return; }
-  if (text === '__maps__') { switchView('maps', document.querySelectorAll('.nav-item')[1]); return; }
-  if (text === '__chat__') { return; }
-  await origSend(text);
 }
 
 // ── INIT ──
