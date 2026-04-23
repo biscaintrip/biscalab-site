@@ -313,7 +313,6 @@ footer { background: var(--black); padding: 64px 48px 32px; border-top: 1px soli
     <li><a href="#servizi">Servizi</a></li>
     <li><a href="#consulenze">Consulenze</a></li>
     <li><a href="#guide">Guide</a></li>
-    <li><a href="bangkok_assistant.html" style="color:var(--gold)">Bangkok Assistant</a></li>
     <li><a href="#contatti">Contatti</a></li>
   </ul>
   <a href="#contatti" class="nav-cta">Contattami →</a>
@@ -604,40 +603,6 @@ footer { background: var(--black); padding: 64px 48px 32px; border-top: 1px soli
 </section>
 
 <!-- FOTO BISCA + WEB APP -->
-<div style="display:grid;grid-template-columns:1fr 2fr;background:var(--gold);">
-  <div style="overflow:hidden;">
-    <img src="IMG_5584.JPG" style="width:100%;height:100%;object-fit:cover;object-position:center top;filter:grayscale(10%);display:block;">
-  </div>
-  <div class="webapp reveal" id="webapp" style="background:var(--gold);margin:0;padding:80px 48px;">
-  <div>
-    <span class="section-label">Assistente AI</span>
-    <h2 class="section-title">Bangkok in tasca,<br><em>sempre.</em></h2>
-    <p class="webapp-desc">Ho costruito un assistente AI con tutta la mia esperienza sulla Thailandia. Chat con memoria, mappe interattive, guide consultabili, GPS contestuale.</p>
-    <ul class="webapp-features">
-      <li>Chat AI con profilo e memoria personale</li>
-      <li>Mappe interattive con i miei posti selezionati</li>
-      <li>Guide scaricabili dentro la piattaforma</li>
-      <li>GPS — suggerimenti in base a dove sei</li>
-      <li>Foto analizzate dall'AI in tempo reale</li>
-      <li>Spinta intelligente verso le consulenze</li>
-    </ul>
-    <a href="/bangkok_assistant.html" class="btn-dark">Prova l'assistente gratuito →</a>
-  </div>
-  <div class="webapp-mockup">
-    <div class="mockup-header">
-      <div class="mockup-dot"></div>
-      <div class="mockup-title">Assistente Bisca · Online</div>
-    </div>
-    <div class="mockup-msgs">
-      <div class="mockup-bubble user">Quanto costa vivere a Bangkok?</div>
-      <div class="mockup-bubble bot">Stile europeo: 1.200–1.800€/mese tutto incluso. Adattandoti alla vita locale scendi a 800-900€. Il costo che nessuno ti dice è quello iniziale: depositi, visto, setup...</div>
-      <div class="mockup-bubble user">Che visto uso per restare 6 mesi?</div>
-      <div class="mockup-bubble bot">Dipende dalla tua situazione. LTR Visa per chi lavora da remoto, Non-B per chi apre azienda, METV per chi fa border run. Ti spiego pro e contro...</div>
-    </div>
-  </div>
-</div>
-</div>
-
 <!-- TESTIMONIANZE -->
 <section class="testimonials" id="testimonianze">
   <div class="reveal">
@@ -735,7 +700,6 @@ footer { background: var(--black); padding: 64px 48px 32px; border-top: 1px soli
       <div class="footer-col-title">Risorse</div>
       <ul class="footer-links">
         <li><a href="#guide">Guide digitali</a></li>
-        <li><a href="bangkok_assistant.html">Bangkok Assistant</a></li>
         <li><a href="#consulenze">Consulenze 1:1</a></li>
       </ul>
     </div>
@@ -755,31 +719,6 @@ footer { background: var(--black); padding: 64px 48px 32px; border-top: 1px soli
   </div>
 </footer>
 
-<!-- AI CHAT WIDGET -->
-<div id="bisca-widget">
-  <div id="chat-panel">
-    <div class="chat-head">
-      <div class="chat-avatar">B</div>
-      <div>
-        <div class="chat-head-name">Assistente Bisca</div>
-        <div class="chat-head-status"><span class="status-dot"></span>Online ora</div>
-      </div>
-      <span class="chat-ctx" id="ctx-badge">Generale</span>
-    </div>
-    <div id="chat-msgs"></div>
-    <div class="chat-input-area">
-      <textarea id="chat-input" placeholder="Scrivi qui..." rows="1"></textarea>
-      <button id="chat-send">
-        <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
-      </button>
-    </div>
-  </div>
-  <button id="chat-toggle" onclick="toggleChat()" title="Chatta con Bisca">
-    <svg class="ic-chat" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
-    <svg class="ic-close" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
-    <span id="chat-notif">1</span>
-  </button>
-</div>
 
 <script>
 // FORM SUBMIT
