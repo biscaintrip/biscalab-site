@@ -1,14 +1,11 @@
 export default async function handler(req, res) {
-  // CORS
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
   if (req.method === 'OPTIONS') return res.status(200).end();
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
-
   try {
     const { messages, system } = req.body;
-
     const response = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
       headers: {
@@ -17,22 +14,18 @@ export default async function handler(req, res) {
         'anthropic-version': '2023-06-01'
       },
       body: JSON.stringify({
-        model: 'claude-sonnet-4-5',
+        model: 'claude-haiku-4-5-20251001',
         max_tokens: 1000,
         system: system || 'Sei l\'assistente AI di Bisca. Rispondi in italiano.',
         messages
       })
     });
-
     const data = await response.json();
-
     if (!response.ok) {
-      return res.status(response.status).json({ error: data.error?.message || 'Errore API' });
+      return res.status(200).json({ content: [{ text: 'ERRORE: ' + JSON.stringify(data) }] });
     }
-
     return res.status(200).json({ content: data.content });
-
   } catch (err) {
-    return res.status(500).json({ error: 'Errore interno del server' });
+    return res.status(200).json({ content: [{ text: 'CATCH: ' + err.message }] });
   }
 }
