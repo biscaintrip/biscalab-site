@@ -284,10 +284,69 @@ footer { padding: 40px 48px; border-top: 1px solid var(--border); display: flex;
 
 <div class="cta-finale" id="contatto">
   <h2>Raccontami<br>il tuo <em>progetto.</em></h2>
-  <p>Ogni situazione è diversa. Scrivimi, dimmi dove sei e cosa vuoi migliorare. Valutiamo insieme il percorso giusto.</p>
-  <a href="index.html#contatti" class="btn-dark">Scrivimi ora →</a>
-  <span class="cta-nota">Rispondo entro 24 ore · Nessun impegno</span>
+  <p>Ogni situazione è diversa. Dimmi dove sei e cosa vuoi migliorare. Valutiamo insieme il percorso giusto.</p>
+
+  <form action="https://formspree.io/f/xnjlookw" method="POST" onsubmit="handleFormSubmit(event)" style="max-width:600px;margin:0 auto;text-align:left;">
+    <div style="margin-bottom:16px;">
+      <label style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:rgba(14,12,10,0.5);display:block;margin-bottom:8px;">Nome completo</label>
+      <input type="text" name="nome" required placeholder="Il tuo nome" style="width:100%;background:rgba(14,12,10,0.06);border:1px solid rgba(14,12,10,0.15);padding:14px 16px;font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--black);outline:none;transition:border-color 0.3s;" onfocus="this.style.borderColor='rgba(14,12,10,0.4)'" onblur="this.style.borderColor='rgba(14,12,10,0.15)'">
+    </div>
+    <div style="margin-bottom:16px;">
+      <label style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:rgba(14,12,10,0.5);display:block;margin-bottom:8px;">Email</label>
+      <input type="email" name="email" required placeholder="tua@email.com" style="width:100%;background:rgba(14,12,10,0.06);border:1px solid rgba(14,12,10,0.15);padding:14px 16px;font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--black);outline:none;transition:border-color 0.3s;" onfocus="this.style.borderColor='rgba(14,12,10,0.4)'" onblur="this.style.borderColor='rgba(14,12,10,0.15)'">
+    </div>
+    <div style="margin-bottom:16px;">
+      <label style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:rgba(14,12,10,0.5);display:block;margin-bottom:8px;">Tipo di consulenza</label>
+      <select name="tipo_consulenza" style="width:100%;background:rgba(14,12,10,0.06);border:1px solid rgba(14,12,10,0.15);padding:14px 16px;font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--black);outline:none;-webkit-appearance:none;">
+        <option value="">Seleziona un'area</option>
+        <option>Analisi completa del locale</option>
+        <option>Ottimizzazione produzione</option>
+        <option>Sviluppo o revisione menu</option>
+        <option>Formazione personale</option>
+        <option>Avvio nuova attività</option>
+        <option>Altro</option>
+      </select>
+    </div>
+    <div style="margin-bottom:32px;">
+      <label style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:rgba(14,12,10,0.5);display:block;margin-bottom:8px;">Raccontami la tua situazione</label>
+      <textarea name="messaggio" rows="5" placeholder="Dove sei adesso, cosa non funziona, cosa vuoi migliorare..." style="width:100%;background:rgba(14,12,10,0.06);border:1px solid rgba(14,12,10,0.15);padding:14px 16px;font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--black);outline:none;resize:vertical;transition:border-color 0.3s;" onfocus="this.style.borderColor='rgba(14,12,10,0.4)'" onblur="this.style.borderColor='rgba(14,12,10,0.15)'"></textarea>
+    </div>
+    <button type="submit" id="food-submit-btn" style="width:100%;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--cream);background:var(--black);border:none;padding:18px;cursor:pointer;transition:opacity 0.3s;">Invia richiesta →</button>
+    <div id="food-success" style="display:none;font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.1em;color:var(--black);padding:16px 0;text-align:center;">
+      ✓ Messaggio inviato — ti rispondo entro 24 ore.
+    </div>
+  </form>
+
+  <span class="cta-nota" style="margin-top:24px;">Nessun impegno · Rispondo entro 24 ore</span>
 </div>
+
+<script>
+async function handleFormSubmit(e) {
+  e.preventDefault();
+  const btn = document.getElementById('food-submit-btn');
+  const success = document.getElementById('food-success');
+  btn.textContent = 'Invio in corso...';
+  btn.disabled = true;
+  try {
+    const res = await fetch(e.target.action, {
+      method: 'POST',
+      body: new FormData(e.target),
+      headers: { 'Accept': 'application/json' }
+    });
+    if (res.ok) {
+      e.target.reset();
+      btn.style.display = 'none';
+      success.style.display = 'block';
+    } else {
+      btn.textContent = 'Invia richiesta →';
+      btn.disabled = false;
+    }
+  } catch(err) {
+    btn.textContent = 'Invia richiesta →';
+    btn.disabled = false;
+  }
+}
+</script>
 
 <footer>
   <span class="footer-copy">© 2025 BiscaLab · Carmine Bisogno</span>
