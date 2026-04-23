@@ -662,18 +662,18 @@ footer { background: var(--black); padding: 64px 48px 32px; border-top: 1px soli
       <div class="ci-value">Bangkok, Sukhumvit · Thailandia</div>
     </div>
   </div>
-  <div class="contact-form reveal">
+  <form class="contact-form reveal" action="https://formspree.io/f/xnjlookw" method="POST" onsubmit="handleFormSubmit(event)">
     <div class="form-group">
       <label class="form-label">Nome completo</label>
-      <input class="form-input" type="text" placeholder="Il tuo nome">
+      <input class="form-input" type="text" name="nome" placeholder="Il tuo nome" required>
     </div>
     <div class="form-group">
       <label class="form-label">Email</label>
-      <input class="form-input" type="email" placeholder="tua@email.com">
+      <input class="form-input" type="email" name="email" placeholder="tua@email.com" required>
     </div>
     <div class="form-group">
       <label class="form-label">Ti interessa</label>
-      <select class="form-select">
+      <select class="form-select" name="interesse">
         <option value="">Seleziona un'area</option>
         <option>Trasferimento in Thailandia</option>
         <option>Investimenti immobiliari SEA</option>
@@ -685,10 +685,13 @@ footer { background: var(--black); padding: 64px 48px 32px; border-top: 1px soli
     </div>
     <div class="form-group">
       <label class="form-label">Raccontami la tua situazione</label>
-      <textarea class="form-textarea" placeholder="Dove sei adesso, cosa stai valutando, cosa ti frena..."></textarea>
+      <textarea class="form-textarea" name="messaggio" placeholder="Dove sei adesso, cosa stai valutando, cosa ti frena..."></textarea>
     </div>
-    <button class="btn-buy" type="submit">Invia richiesta →</button>
-  </div>
+    <button class="btn-buy" type="submit" id="form-submit-btn">Invia richiesta →</button>
+    <div id="form-success" style="display:none;color:var(--gold);font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.1em;padding:16px 0;">
+      ✓ Messaggio inviato — ti rispondo entro 24 ore.
+    </div>
+  </form>
 </section>
 
 <!-- FOOTER -->
@@ -764,6 +767,34 @@ footer { background: var(--black); padding: 64px 48px 32px; border-top: 1px soli
 </div>
 
 <script>
+// FORM SUBMIT
+async function handleFormSubmit(e) {
+  e.preventDefault();
+  const btn = document.getElementById('form-submit-btn');
+  const success = document.getElementById('form-success');
+  btn.textContent = 'Invio in corso...';
+  btn.disabled = true;
+  try {
+    const res = await fetch(e.target.action, {
+      method: 'POST',
+      body: new FormData(e.target),
+      headers: { 'Accept': 'application/json' }
+    });
+    if (res.ok) {
+      e.target.reset();
+      btn.style.display = 'none';
+      success.style.display = 'block';
+    } else {
+      btn.textContent = 'Invia richiesta →';
+      btn.disabled = false;
+      alert('Errore nell\'invio. Riprova.');
+    }
+  } catch(err) {
+    btn.textContent = 'Invia richiesta →';
+    btn.disabled = false;
+  }
+}
+
 // BUY PRODUCT
 async function buyProduct(plan) {
   const btn = event.target;
