@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nuova Vita in Thailandia — Kit di Orientamento | BiscaLab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&family=Unbounded:wght@200;400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream: #F7F3EC;
+  --black: #0E0C0A;
+  --gold: #C8973A;
+  --gold-light: #E8B85A;
+  --warm-grey: #B0A898;
+  --border: rgba(200,151,58,0.15);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--black); color: var(--cream); font-family: 'Cormorant Garamond', serif; overflow-x: hidden; }
+
+/* NAV */
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 24px 48px; background: rgba(14,12,10,0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); }
+.nav-logo { font-family: 'Unbounded', sans-serif; font-size: 13px; font-weight: 200; color: var(--cream); text-decoration: none; letter-spacing: 0.2em; }
+.nav-logo span { color: var(--gold); }
+.nav-back { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--warm-grey); text-decoration: none; transition: color 0.3s; }
+.nav-back:hover { color: var(--gold); }
+.nav-cta { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--black); background: var(--gold); padding: 10px 24px; text-decoration: none; transition: background 0.3s; }
+.nav-cta:hover { background: var(--gold-light); }
+
+/* HERO */
+.hero { padding: 160px 48px 80px; max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+.hero-tag { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.4em; color: var(--gold); text-transform: uppercase; margin-bottom: 24px; display: block; }
+.hero-title { font-size: clamp(40px, 5vw, 64px); font-weight: 300; line-height: 1.05; margin-bottom: 24px; }
+.hero-title em { font-style: italic; color: var(--gold); }
+.hero-subtitle { font-size: 20px; font-weight: 300; color: var(--warm-grey); line-height: 1.7; margin-bottom: 40px; }
+.hero-price-wrap { display: flex; align-items: baseline; gap: 16px; margin-bottom: 32px; }
+.hero-price { font-family: 'Unbounded', sans-serif; font-size: 48px; font-weight: 700; color: var(--gold); }
+.hero-price-note { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--warm-grey); letter-spacing: 0.1em; }
+.btn-buy { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--black); background: var(--gold); border: none; padding: 18px 40px; cursor: pointer; transition: background 0.3s; display: inline-block; text-decoration: none; }
+.btn-buy:hover { background: var(--gold-light); }
+.hero-image { position: relative; }
+.hero-image img { width: 100%; display: block; }
+.hero-badge { position: absolute; bottom: -20px; left: -20px; background: var(--gold); color: var(--black); padding: 20px 24px; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; }
+
+/* STATEMENT */
+.statement { background: var(--gold); padding: 80px 48px; text-align: center; }
+.statement p { font-size: clamp(24px, 3vw, 40px); font-weight: 300; color: var(--black); line-height: 1.4; max-width: 800px; margin: 0 auto; }
+.statement strong { font-weight: 600; }
+
+/* SECTION */
+.section { padding: 80px 48px; max-width: 1200px; margin: 0 auto; }
+.section-label { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.4em; color: var(--gold); text-transform: uppercase; margin-bottom: 20px; display: block; }
+.section-title { font-size: clamp(32px, 4vw, 52px); font-weight: 300; line-height: 1.1; margin-bottom: 48px; }
+.section-title em { font-style: italic; color: var(--gold); }
+
+/* COSA RICEVI */
+.kit-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; margin-top: 48px; }
+.kit-item { background: rgba(247,243,236,0.03); border: 1px solid var(--border); padding: 40px; transition: border-color 0.3s; }
+.kit-item:hover { border-color: rgba(200,151,58,0.4); }
+.kit-num { font-family: 'Unbounded', sans-serif; font-size: 11px; font-weight: 700; color: var(--gold); letter-spacing: 0.2em; margin-bottom: 16px; display: block; }
+.kit-name { font-size: 22px; font-weight: 400; margin-bottom: 12px; line-height: 1.2; }
+.kit-desc { font-size: 16px; font-weight: 300; color: var(--warm-grey); line-height: 1.6; margin-bottom: 20px; }
+.kit-points { list-style: none; }
+.kit-points li { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.08em; color: var(--warm-grey); padding: 8px 0; border-bottom: 1px solid var(--border); display: flex; gap: 12px; align-items: flex-start; }
+.kit-points li::before { content: '→'; color: var(--gold); flex-shrink: 0; }
+
+/* ERRORI */
+.errors { background: rgba(247,243,236,0.02); border-left: 3px solid var(--gold); padding: 60px 48px; margin: 0; }
+.errors-inner { max-width: 1200px; margin: 0 auto; }
+.errors-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 40px; }
+.error-item { display: flex; gap: 16px; }
+.error-icon { color: var(--gold); font-size: 18px; flex-shrink: 0; margin-top: 2px; }
+.error-text { font-size: 17px; font-weight: 300; color: var(--warm-grey); line-height: 1.5; }
+
+/* PER CHI */
+.perchi { padding: 80px 48px; background: rgba(200,151,58,0.05); }
+.perchi-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
+.perchi-si li, .perchi-no li { font-size: 17px; font-weight: 300; padding: 12px 0; border-bottom: 1px solid var(--border); display: flex; gap: 12px; list-style: none; }
+.perchi-si li::before { content: '✓'; color: var(--gold); font-weight: 700; flex-shrink: 0; }
+.perchi-no li::before { content: '✗'; color: rgba(200,151,58,0.4); flex-shrink: 0; }
+
+/* STORIA */
+.storia { padding: 80px 48px; max-width: 900px; margin: 0 auto; text-align: center; }
+.storia-quote { font-size: clamp(20px, 2.5vw, 28px); font-weight: 300; font-style: italic; line-height: 1.6; color: var(--cream); margin-bottom: 32px; }
+.storia-attr { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.2em; color: var(--gold); text-transform: uppercase; }
+
+/* CTA FINALE */
+.cta-finale { background: var(--cream); padding: 100px 48px; text-align: center; }
+.cta-finale h2 { font-size: clamp(32px, 4vw, 56px); font-weight: 300; color: var(--black); margin-bottom: 16px; line-height: 1.1; }
+.cta-finale h2 em { font-style: italic; color: var(--gold); }
+.cta-finale p { font-size: 18px; color: rgba(14,12,10,0.6); margin-bottom: 48px; font-weight: 300; }
+.cta-price { font-family: 'Unbounded', sans-serif; font-size: 56px; font-weight: 700; color: var(--black); margin-bottom: 8px; }
+.cta-note { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: rgba(14,12,10,0.5); margin-bottom: 40px; }
+.btn-buy-dark { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--cream); background: var(--black); border: none; padding: 20px 48px; cursor: pointer; transition: opacity 0.3s; text-decoration: none; display: inline-block; }
+.btn-buy-dark:hover { opacity: 0.8; }
+
+/* DISCLAIMER */
+.disclaimer { padding: 40px 48px; border-top: 1px solid var(--border); }
+.disclaimer-inner { max-width: 1200px; margin: 0 auto; }
+.disclaimer p { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.05em; color: var(--warm-grey); line-height: 1.8; }
+
+/* FOOTER */
+footer { padding: 40px 48px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+.footer-copy { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--warm-grey); letter-spacing: 0.1em; }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  nav { padding: 20px 24px; }
+  .hero { grid-template-columns: 1fr; gap: 40px; padding: 120px 24px 60px; }
+  .hero-image { order: -1; }
+  .section { padding: 60px 24px; }
+  .kit-grid { grid-template-columns: 1fr; }
+  .errors { padding: 60px 24px; }
+  .errors-grid { grid-template-columns: 1fr; gap: 24px; }
+  .perchi { padding: 60px 24px; }
+  .perchi-inner { grid-template-columns: 1fr; gap: 40px; }
+  .cta-finale { padding: 60px 24px; }
+  footer { padding: 24px; flex-direction: column; gap: 12px; text-align: center; }
+}
+
+/* REVEAL */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s, transform 0.7s; }
+.reveal.visible { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">BISCA<span>LAB</span></a>
+  <a href="index.html#guide" class="nav-back">← Torna alle guide</a>
+  <a href="https://buy.stripe.com/8x27sL96D8QMcgt1KQ3sI0a" class="nav-cta">Acquista ora — 19,99€</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <span class="hero-tag">Kit di orientamento</span>
+    <h1 class="hero-title">Nuova Vita<br>in <em>Thailandia.</em></h1>
+    <p class="hero-subtitle">Non è una guida da leggere. È un kit per capire se partire, come farlo e cosa aspettarti davvero.</p>
+    <div class="hero-price-wrap">
+      <span class="hero-price">19,99€</span>
+      <span class="hero-price-note">Accesso immediato dopo l'acquisto</span>
+    </div>
+    <a href="https://buy.stripe.com/8x27sL96D8QMcgt1KQ3sI0a" class="btn-buy">Acquista ora →</a>
+  </div>
+  <div class="hero-image">
+    <img src="Nuovavita.png" alt="Nuova Vita in Thailandia">
+    <div class="hero-badge">4 strumenti · PDF digitale · Immediato</div>
+  </div>
+</section>
+
+<!-- STATEMENT -->
+<div class="statement">
+  <p>La maggior parte dei contenuti sulla Thailandia ti dice:<br><strong>"Guarda quanto si vive bene qui."</strong><br>Questo kit ti dice:<br><strong>"Vediamo se questa vita è sostenibile per te."</strong></p>
+</div>
+
+<!-- COSA RICEVI -->
+<section class="section reveal">
+  <span class="section-label">Cosa ricevi</span>
+  <h2 class="section-title">4 strumenti<br><em>complementari.</em></h2>
+  <div class="kit-grid">
+    <div class="kit-item">
+      <span class="kit-num">01</span>
+      <h3 class="kit-name">Nuova Vita in Thailandia</h3>
+      <p class="kit-desc">La guida principale. Una guida realistica e adulta per italiani che stanno valutando un cambiamento di vita.</p>
+      <ul class="kit-points">
+        <li>Capire se la Thailandia è davvero adatta a te</li>
+        <li>Cosa significa viverci nella quotidianità</li>
+        <li>Costi, sanità, lavoro, burocrazia</li>
+        <li>Evitare decisioni impulsive e aspettative sbagliate</li>
+      </ul>
+    </div>
+    <div class="kit-item">
+      <span class="kit-num">02</span>
+      <h3 class="kit-name">Bangkok — Mappa Vita Pratica</h3>
+      <p class="kit-desc">Non è una mappa. È una mappa mentale per funzionare nei primi 30–90 giorni.</p>
+      <ul class="kit-points">
+        <li>Dove è più difficile sbagliare</li>
+        <li>Riduce incertezza e stress iniziale</li>
+        <li>Ogni errore nei primi mesi costa tempo e denaro</li>
+      </ul>
+    </div>
+    <div class="kit-item">
+      <span class="kit-num">03</span>
+      <h3 class="kit-name">Checklist Trasferimento</h3>
+      <p class="kit-desc">Documento operativo diviso in tre fasi: prima di partire, primi 7 giorni, primo mese.</p>
+      <ul class="kit-points">
+        <li>Non dimenticare passaggi importanti</li>
+        <li>Priorità chiare, errori comuni evitati</li>
+        <li>Il documento che avresti voluto avere prima</li>
+      </ul>
+    </div>
+    <div class="kit-item">
+      <span class="kit-num">04</span>
+      <h3 class="kit-name">Bangkok — Mappa Punti Essenziali</h3>
+      <p class="kit-desc">Solo i luoghi che contano davvero. Da aprire quando serve un riferimento chiaro.</p>
+      <ul class="kit-points">
+        <li>Ambasciata d'Italia</li>
+        <li>Uffici immigrazione</li>
+        <li>Ospedali internazionali affidabili</li>
+        <li>Aeroporti e stazione centrale</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PER CHI -->
+<div class="perchi reveal">
+  <div class="perchi-inner">
+    <div>
+      <span class="section-label">È per te se</span>
+      <ul class="perchi-si">
+        <li>Stai valutando seriamente un trasferimento in Thailandia</li>
+        <li>Non vuoi fare scelte impulsive</li>
+        <li>Cerchi chiarezza, non motivazione</li>
+        <li>Preferisci capire prima di partire, non dopo aver sbagliato</li>
+      </ul>
+    </div>
+    <div>
+      <span class="section-label">Non è per te se</span>
+      <ul class="perchi-no">
+        <li>Sei solo curioso sulla Thailandia</li>
+        <li>Cerchi una guida turistica</li>
+        <li>Vuoi "mollo tutto e vedo che succede"</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- STORIA -->
+<section class="storia reveal">
+  <p class="storia-quote">"Non stai comprando una guida.<br>Stai comprando meno errori."</p>
+  <span class="storia-attr">Bisca — Bangkok, Thailandia</span>
+</section>
+
+<!-- CTA FINALE -->
+<div class="cta-finale">
+  <h2>Pronto a <em>capire davvero</em><br>cosa ti aspetta?</h2>
+  <p>Accesso immediato dopo l'acquisto. 4 strumenti in formato PDF digitale.</p>
+  <div class="cta-price">19,99€</div>
+  <div class="cta-note">PDF digitale · Accesso immediato · Consultabile su tutti i dispositivi</div>
+  <a href="https://buy.stripe.com/8x27sL96D8QMcgt1KQ3sI0a" class="btn-buy-dark">Acquista ora →</a>
+</div>
+
+<!-- DISCLAIMER -->
+<div class="disclaimer">
+  <div class="disclaimer-inner">
+    <p>Tutti i materiali sono in formato PDF digitale. Consultabili da telefono, tablet o computer. Non è una copia fisica. Le informazioni hanno scopo informativo e operativo. Non costituiscono consulenza legale, fiscale o notarile. Le normative possono cambiare e vanno sempre verificate prima di decisioni definitive.</p>
+  </div>
+</div>
+
+<footer>
+  <span class="footer-copy">© 2025 BiscaLab · Carmine Bisogno</span>
+  <a href="index.html" class="nav-back">biscalab-site.vercel.app</a>
+</footer>
+
+<script>
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
