@@ -226,52 +226,37 @@ footer { background: var(--black); padding: 64px 48px 32px; border-top: 1px soli
 .reveal { opacity:0; transform:translateY(36px); transition:opacity 0.85s, transform 0.85s; }
 .reveal.visible { opacity:1; transform:translateY(0); }
 
-/* ── AI CHAT WIDGET ── */
-#bisca-widget { position:fixed; bottom:32px; right:32px; z-index:10000; font-family:'Cormorant Garamond',Georgia,serif; }
-#chat-toggle { width:58px; height:58px; background:var(--gold); border:none; cursor:none; display:flex; align-items:center; justify-content:center; position:relative; transition:background 0.3s, transform 0.2s; box-shadow:0 8px 32px rgba(200,151,58,0.4); }
-#chat-toggle:hover { background:var(--gold-light); transform:scale(1.06); }
-#chat-toggle svg { width:22px; height:22px; fill:var(--black); }
-#chat-toggle .ic-close { display:none; }
-#chat-toggle.open .ic-chat { display:none; }
-#chat-toggle.open .ic-close { display:block; }
-#chat-toggle::before { content:''; position:absolute; inset:-7px; border:1px solid var(--gold); border-radius:50%; opacity:0; animation:chatPulse 2.8s ease-out infinite; }
-@keyframes chatPulse { 0%{transform:scale(1);opacity:0.7} 100%{transform:scale(1.5);opacity:0} }
-#chat-notif { position:absolute; top:-3px; right:-3px; width:14px; height:14px; background:#E05A3A; border-radius:50%; border:2px solid var(--black); font-family:'DM Mono',monospace; font-size:8px; color:#fff; display:flex; align-items:center; justify-content:center; }
-#chat-panel { position:absolute; bottom:74px; right:0; width:376px; background:var(--dark-surface); border:1px solid var(--border); display:flex; flex-direction:column; transform:translateY(16px) scale(0.96); opacity:0; pointer-events:none; transition:transform 0.3s cubic-bezier(0.34,1.56,0.64,1), opacity 0.25s; transform-origin:bottom right; box-shadow:0 24px 64px rgba(0,0,0,0.65); }
-#chat-panel.open { transform:translateY(0) scale(1); opacity:1; pointer-events:all; }
-.chat-head { padding:18px 22px; border-bottom:1px solid var(--border); display:flex; align-items:center; gap:12px; background:rgba(200,151,58,0.04); }
-.chat-avatar { width:38px; height:38px; background:var(--gold); display:flex; align-items:center; justify-content:center; flex-shrink:0; font-family:'Unbounded',sans-serif; font-size:12px; font-weight:700; color:var(--black); }
-.chat-head-name { font-family:'DM Mono',monospace; font-size:11px; letter-spacing:0.15em; text-transform:uppercase; color:var(--cream); }
-.chat-head-status { font-family:'DM Mono',monospace; font-size:9px; color:var(--gold); letter-spacing:0.1em; display:flex; align-items:center; gap:5px; margin-top:2px; }
-.status-dot { width:5px; height:5px; background:#4CAF50; border-radius:50%; animation:statusPulse 2s infinite; }
-.chat-ctx { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.15em; text-transform:uppercase; color:var(--black); background:var(--gold); padding:2px 8px; margin-left:auto; opacity:0.8; }
-#chat-msgs { flex:1; overflow-y:auto; padding:18px; display:flex; flex-direction:column; gap:10px; min-height:260px; max-height:320px; scroll-behavior:smooth; }
-#chat-msgs::-webkit-scrollbar { width:3px; }
-#chat-msgs::-webkit-scrollbar-thumb { background:var(--border); }
-.msg { display:flex; flex-direction:column; gap:4px; animation:msgIn 0.3s ease forwards; }
-@keyframes msgIn { from{opacity:0;transform:translateY(6px)} to{opacity:1;transform:translateY(0)} }
-.msg.user { align-items:flex-end; }
-.msg.bot { align-items:flex-start; }
-.msg-bubble { max-width:90%; padding:11px 15px; font-size:15px; line-height:1.6; font-weight:300; white-space:pre-line; }
-.msg.bot .msg-bubble { background:rgba(247,243,236,0.05); border-left:2px solid var(--gold); color:rgba(247,243,236,0.9); }
-.msg.user .msg-bubble { background:rgba(200,151,58,0.12); border-right:2px solid var(--gold); color:var(--gold); text-align:right; }
-.qr-wrap { display:flex; flex-wrap:wrap; gap:7px; margin-top:4px; }
-.qr { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.08em; padding:6px 12px; border:1px solid var(--border); color:var(--gold); background:transparent; cursor:pointer; transition:background 0.2s, border-color 0.2s; text-align:left; }
-.qr:hover { background:rgba(200,151,58,0.1); border-color:var(--gold); }
-.typing-ind { display:flex; align-items:center; gap:4px; padding:11px 15px; background:rgba(247,243,236,0.05); border-left:2px solid var(--gold); width:fit-content; }
-.typing-dot { width:5px; height:5px; background:var(--gold); border-radius:50%; animation:typingB 1.2s ease-in-out infinite; }
-.typing-dot:nth-child(2){animation-delay:0.2s} .typing-dot:nth-child(3){animation-delay:0.4s}
-@keyframes typingB { 0%,60%,100%{transform:translateY(0)} 30%{transform:translateY(-5px)} }
-.chat-input-area { padding:14px 18px; border-top:1px solid var(--border); display:flex; gap:8px; align-items:flex-end; background:rgba(0,0,0,0.15); }
-#chat-input { flex:1; background:rgba(247,243,236,0.05); border:1px solid var(--border); padding:9px 13px; font-family:'Cormorant Garamond',serif; font-size:16px; color:var(--cream); outline:none; resize:none; min-height:40px; max-height:96px; transition:border-color 0.3s; cursor:text; line-height:1.4; }
-#chat-input:focus { border-color:var(--gold); }
-#chat-input::placeholder { color:var(--warm-grey); opacity:0.55; }
-#chat-send { width:40px; height:40px; background:var(--gold); border:none; cursor:pointer; display:flex; align-items:center; justify-content:center; flex-shrink:0; transition:background 0.2s; }
-#chat-send:hover { background:var(--gold-light); }
-#chat-send svg { width:15px; height:15px; fill:var(--black); }
-#chat-send:disabled { opacity:0.35; cursor:not-allowed; }
-.chat-cta-btn { display:inline-flex; align-items:center; gap:8px; margin-top:6px; font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.15em; text-transform:uppercase; color:var(--black); background:var(--gold); padding:8px 14px; text-decoration:none; cursor:pointer; border:none; transition:background 0.2s; }
-.chat-cta-btn:hover { background:var(--gold-light); }
+/* PACK (nightlife & lifestyle) */
+.pack-section { padding: 120px 48px; background: linear-gradient(180deg, var(--black) 0%, var(--dark-surface) 100%); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.pack-inner { max-width: 1200px; margin: 0 auto; }
+.pack-header { text-align: center; margin-bottom: 64px; }
+.pack-card { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; background: rgba(247,243,236,0.02); border: 1px solid var(--border); padding: 56px; transition: border-color 0.4s; }
+.pack-card:hover { border-color: rgba(200,151,58,0.45); }
+.pack-img-wrap { position: relative; overflow: hidden; }
+.pack-img { width: 100%; display: block; transition: transform 0.6s; }
+.pack-card:hover .pack-img { transform: scale(1.03); }
+.pack-badge-launch { position: absolute; top: 16px; left: 16px; background: var(--gold); color: var(--black); padding: 8px 14px; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 700; }
+.pack-tag { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.4em; color: var(--gold); text-transform: uppercase; margin-bottom: 20px; display: block; }
+.pack-name { font-family: 'Cormorant Garamond', serif; font-size: clamp(30px, 3.2vw, 44px); font-weight: 300; line-height: 1.1; margin-bottom: 18px; }
+.pack-name em { font-style: italic; color: var(--gold); }
+.pack-desc { font-size: 18px; font-weight: 300; color: var(--warm-grey); line-height: 1.7; margin-bottom: 28px; }
+.pack-includes { list-style: none; margin-bottom: 32px; }
+.pack-includes li { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.06em; color: rgba(247,243,236,0.75); padding: 10px 0; border-bottom: 1px solid var(--border); display: flex; gap: 12px; align-items: flex-start; }
+.pack-includes li::before { content: '→'; color: var(--gold); flex-shrink: 0; }
+.pack-price-wrap { display: flex; align-items: baseline; gap: 14px; margin-bottom: 24px; flex-wrap: wrap; }
+.pack-price { font-family: 'Unbounded', sans-serif; font-size: 42px; font-weight: 700; color: var(--gold); }
+.pack-price-old { font-family: 'Unbounded', sans-serif; font-size: 20px; font-weight: 400; color: var(--warm-grey); text-decoration: line-through; text-decoration-color: rgba(176,168,152,0.6); }
+.pack-price-note { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.15em; color: var(--warm-grey); text-transform: uppercase; }
+.pack-actions { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+.pack-btn-primary { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--black); background: var(--gold); border: none; padding: 16px 32px; cursor: none; transition: background 0.3s; text-decoration: none; display: inline-block; }
+.pack-btn-primary:hover { background: var(--gold-light); }
+.pack-btn-ghost { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); background: transparent; border: 1px solid var(--border); padding: 15px 32px; cursor: none; transition: border-color 0.3s, color 0.3s; text-decoration: none; display: inline-block; }
+.pack-btn-ghost:hover { border-color: var(--gold); color: var(--gold-light); }
+@media (max-width: 900px) {
+  .pack-card { grid-template-columns: 1fr; gap: 32px; padding: 32px; }
+  .pack-img-wrap { order: -1; }
+}
+
 
 /* MOBILE */
 @media (max-width: 768px) {
@@ -295,8 +280,6 @@ footer { background: var(--black); padding: 64px 48px 32px; border-top: 1px soli
   .footer-bottom { flex-direction:column; gap:10px; text-align:center; }
   body { cursor:auto; }
   .cursor, .cursor-ring { display:none; }
-  #chat-panel { width:calc(100vw - 48px); right:-8px; }
-  #bisca-widget { bottom:24px; right:24px; }
 }
 </style>
 </head>
@@ -313,6 +296,7 @@ footer { background: var(--black); padding: 64px 48px 32px; border-top: 1px soli
     <li><a href="#servizi">Servizi</a></li>
     <li><a href="#consulenze">Consulenze</a></li>
     <li><a href="#guide">Guide</a></li>
+    <li><a href="#pack">Pack</a></li>
     <li><a href="#contatti">Contatti</a></li>
   </ul>
   <a href="#contatti" class="nav-cta">Contattami →</a>
@@ -602,6 +586,42 @@ footer { background: var(--black); padding: 64px 48px 32px; border-top: 1px soli
   </div>
 </section>
 
+<!-- PACK -->
+<section class="pack-section" id="pack">
+  <div class="pack-inner">
+    <div class="pack-header reveal">
+      <span class="section-label">Bisca Pack</span>
+      <h2 class="section-title">Quello che <em>nessun altro</em><br>ti racconta davvero.</h2>
+    </div>
+    <div class="pack-card reveal">
+      <div class="pack-img-wrap">
+        <img class="pack-img" src="bisca-nightlife-pack-cover.jpg" alt="Bisca Nightlife Pack — Bangkok">
+        <span class="pack-badge-launch">Lancio −50%</span>
+      </div>
+      <div>
+        <span class="pack-tag">Nightlife · Nuovo</span>
+        <h3 class="pack-name">Bisca Nightlife Pack<br><em>La chiave definitiva per la notte di Bangkok.</em></h3>
+        <p class="pack-desc">La guida completa che nessun altro ti darà. Pratica, culturale e aggiornata al 2026. Tutto quello che serve per vivere Bangkok di notte come un vero insider.</p>
+        <ul class="pack-includes">
+          <li>Bangkok Nightlife — guida pratica, 93 pagine</li>
+          <li>Bangkok Luci Rosse — guida culturale, 36 pagine</li>
+          <li>Mappa interattiva Google My Maps — 200+ locali</li>
+          <li>Checklist pre-serata + istruzioni d'uso</li>
+        </ul>
+        <div class="pack-price-wrap">
+          <span class="pack-price">9,99€</span>
+          <span class="pack-price-old">19,99€</span>
+          <span class="pack-price-note">Prezzo di lancio</span>
+        </div>
+        <div class="pack-actions">
+          <a href="https://buy.stripe.com/eVq5kD96D6IE80dfBG3sI0d" class="pack-btn-primary">Acquista ora →</a>
+          <a href="bisca-nightlife-pack.html" class="pack-btn-ghost">Scopri di più</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- FOTO BISCA + WEB APP -->
 <!-- TESTIMONIANZE -->
 <section class="testimonials" id="testimonianze">
@@ -812,127 +832,6 @@ window.addEventListener('scroll',()=>{
   else{nav.style.background='';nav.style.backdropFilter='';}
 });
 
-// CHAT
-let chatOpen=false,chatHistory=[],isTyping=false,currentCtx='generale';
-const ctxMap={home:'Generale',about:'Chi sono',servizi:'Servizi',consulenze:'Consulenze',guide:'Guide',webapp:'Web App',blog:'Blog',contatti:'Contatti'};
-function detectCtx(){
-  let cur='home';
-  document.querySelectorAll('section[id],div[id]').forEach(s=>{if(s.getBoundingClientRect().top<=window.innerHeight/2)cur=s.id;});
-  document.getElementById('ctx-badge').textContent=ctxMap[cur]||'Generale';
-  currentCtx=cur;
-}
-window.addEventListener('scroll',detectCtx);
-
-function toggleChat(){
-  chatOpen=!chatOpen;
-  document.getElementById('chat-panel').classList.toggle('open',chatOpen);
-  document.getElementById('chat-toggle').classList.toggle('open',chatOpen);
-  if(chatOpen){
-    document.getElementById('chat-notif').style.display='none';
-    if(chatHistory.length===0)initChat();
-    setTimeout(()=>document.getElementById('chat-input').focus(),300);
-  }
-}
-function openChat(){if(!chatOpen)toggleChat();}
-
-function initChat(){
-  addBotMsg("Ciao! Sono l'assistente di Bisca.\n\nVivo a Bangkok e conosco ogni angolo della Thailandia — trasferimento, business, viaggi, food.\n\nCosa vuoi sapere?",[
-    {label:'Trasferirmi in Thailandia',val:'Sto valutando di trasferirmi in Thailandia, da dove inizio?'},
-    {label:'Aprire un business',val:"Voglio aprire un'attività in Thailandia, cosa devo sapere?"},
-    {label:'Pianificare un viaggio',val:'Voglio pianificare un viaggio a Bangkok, puoi aiutarmi?'},
-    {label:'Consulenza pizzeria',val:'Mi interessa una consulenza per aprire una pizzeria'},
-  ]);
-}
-
-function addBotMsg(text,qrs=[]){
-  const msgs=document.getElementById('chat-msgs');
-  const div=document.createElement('div');div.className='msg bot';
-  const b=document.createElement('div');b.className='msg-bubble';b.textContent=text;div.appendChild(b);
-  if(qrs.length){
-    const w=document.createElement('div');w.className='qr-wrap';
-    qrs.forEach(q=>{const btn=document.createElement('button');btn.className='qr';btn.textContent=q.label;btn.onclick=()=>{w.remove();sendMsg(q.val);};w.appendChild(btn);});
-    div.appendChild(w);
-  }
-  msgs.appendChild(div);msgs.scrollTop=msgs.scrollHeight;
-}
-function addUserMsg(text){
-  const msgs=document.getElementById('chat-msgs');
-  const div=document.createElement('div');div.className='msg user';
-  const b=document.createElement('div');b.className='msg-bubble';b.textContent=text;
-  div.appendChild(b);msgs.appendChild(div);msgs.scrollTop=msgs.scrollHeight;
-}
-function showTyping(){
-  const msgs=document.getElementById('chat-msgs');
-  const div=document.createElement('div');div.className='msg bot';div.id='typing-el';
-  div.innerHTML='<div class="typing-ind"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div>';
-  msgs.appendChild(div);msgs.scrollTop=msgs.scrollHeight;
-}
-function hideTyping(){const t=document.getElementById('typing-el');if(t)t.remove();}
-
-async function sendMsg(text){
-  if(!text.trim()||isTyping)return;
-  isTyping=true;
-  const input=document.getElementById('chat-input');
-  const send=document.getElementById('chat-send');
-  input.value='';send.disabled=true;
-  document.querySelectorAll('.qr-wrap').forEach(el=>el.remove());
-  addUserMsg(text);
-  chatHistory.push({role:'user',content:text});
-  showTyping();
-
-  const sys=`Sei l'assistente AI di Bisca (BiscaLab). Rappresenti Carmine Bisogno, pizzaiolo e imprenditore italiano da oltre 3 anni a Bangkok, fondatore di Don Ciccio (50 Top Pizza Italia).
-
-Rispondi in italiano, tono diretto, concreto, mai generico. Max 3-4 paragrafi brevi.
-
-Expertise: trasferimento Thailandia, visti, immobiliare SEA, apertura società, viaggi su misura, consulenza food & pizzeria.
-
-Consulenze disponibili:
-- Analisi situazione: 59€ / 30min
-- Trasferimento: 119€ / 60min  
-- Business/investimenti: 179€ / 60min
-- Food/pizzeria: 149€ / 60min
-
-Guide: Bangkok Vera 4,99€ · Itinerario 7gg 4,99€ · Kit trasferimento 19,99€ · Kit Casa 69,99€
-
-Sezione attiva: ${currentCtx}
-
-Quando la domanda richiede una valutazione personale, suggerisci la consulenza giusta in modo naturale. Non fare il venditore aggressivo.`;
-
-  try{
-    const res=await fetch('/api/chat',{
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({system:sys,messages:chatHistory})
-    });
-    const data=await res.json();
-    hideTyping();
-    const reply=data.content?.[0]?.text||'Si è verificato un errore. Riprova tra un momento.';
-    chatHistory.push({role:'assistant',content:reply});
-    addBotMsg(reply);
-    if(reply.toLowerCase().includes('prenota')||reply.toLowerCase().includes('consulenza')||reply.toLowerCase().includes('sessione')){
-      setTimeout(()=>{
-        const msgs=document.getElementById('chat-msgs');
-        const d=document.createElement('div');d.className='msg bot';
-        d.innerHTML='<a href="#consulenze" class="chat-cta-btn" onclick="toggleChat()">Prenota una consulenza →</a>';
-        msgs.appendChild(d);msgs.scrollTop=msgs.scrollHeight;
-      },350);
-    }
-  }catch(e){
-    hideTyping();
-    addBotMsg('Connessione non disponibile. Scrivimi direttamente a bisca@biscalab.com');
-  }
-  isTyping=false;send.disabled=false;input.focus();
-}
-
-document.getElementById('chat-send').onclick=()=>{const v=document.getElementById('chat-input').value.trim();if(v)sendMsg(v);};
-document.getElementById('chat-input').addEventListener('keydown',e=>{
-  if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();const v=e.target.value.trim();if(v)sendMsg(v);}
-});
-document.getElementById('chat-input').addEventListener('input',function(){this.style.height='auto';this.style.height=Math.min(this.scrollHeight,96)+'px';});
-document.addEventListener('click',e=>{
-  const w=document.getElementById('bisca-widget');
-  if(chatOpen&&!w.contains(e.target))toggleChat();
-});
 </script>
 </body>
 </html>
