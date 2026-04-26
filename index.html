@@ -198,6 +198,12 @@ section { padding: 120px 48px; }
 .form-input, .form-select, .form-textarea { background: rgba(247,243,236,0.04); border: 1px solid var(--border); padding: 13px 16px; font-family: 'Cormorant Garamond', serif; font-size: 17px; color: var(--cream); outline: none; transition: border-color 0.3s; cursor: text; -webkit-appearance: none; }
 .form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--gold); }
 .form-textarea { resize: vertical; min-height: 110px; cursor: text; }
+.form-consent { margin: 20px 0 8px; }
+.consent-label { display: flex; align-items: flex-start; gap: 12px; cursor: pointer; }
+.consent-label input[type="checkbox"] { margin-top: 4px; flex-shrink: 0; accent-color: var(--gold); cursor: pointer; }
+.consent-label span { font-size: 14px; line-height: 1.55; color: rgba(247,243,236,0.7); font-weight: 300; }
+.consent-label a { color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(200,151,58,0.4); }
+.consent-label a:hover { border-color: var(--gold); }
 .form-select { cursor: none; }
 .form-select option { background: var(--black); }
 
@@ -214,8 +220,12 @@ footer { background: var(--black); padding: 64px 48px 32px; border-top: 1px soli
 .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
 .footer-links a { font-family: 'Cormorant Garamond', serif; font-size: 16px; color: var(--warm-grey); text-decoration: none; transition: color 0.3s; cursor: none; }
 .footer-links a:hover { color: var(--cream); }
-.footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 28px; border-top: 1px solid rgba(200,151,58,0.1); }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 28px; border-top: 1px solid rgba(200,151,58,0.1); flex-wrap: wrap; gap: 16px; }
 .footer-copy, .footer-loc { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--warm-grey); letter-spacing: 0.1em; opacity: 0.45; }
+.footer-copy-wrap { display: flex; flex-direction: column; gap: 12px; }
+.footer-legal-links { display: flex; gap: 20px; flex-wrap: wrap; }
+.footer-legal-links a { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--warm-grey); text-decoration: none; opacity: 0.7; transition: color 0.3s, opacity 0.3s; }
+.footer-legal-links a:hover { color: var(--gold); opacity: 1; }
 
 /* ANIMATIONS */
 @keyframes fadeUp { from { opacity:0; transform:translateY(28px); } to { opacity:1; transform:translateY(0); } }
@@ -687,6 +697,12 @@ footer { background: var(--black); padding: 64px 48px 32px; border-top: 1px soli
       <label class="form-label">Raccontami la tua situazione</label>
       <textarea class="form-textarea" name="messaggio" placeholder="Dove sei adesso, cosa stai valutando, cosa ti frena..."></textarea>
     </div>
+    <div class="form-consent">
+      <label class="consent-label">
+        <input type="checkbox" name="consenso_privacy" required>
+        <span>Ho letto la <a href="privacy-policy.html" target="_blank">Privacy Policy</a> e acconsento al trattamento dei miei dati per ricevere una risposta alla mia richiesta.</span>
+      </label>
+    </div>
     <button class="btn-buy" type="submit" id="form-submit-btn">Invia richiesta →</button>
     <div id="form-success" style="display:none;color:var(--gold);font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.1em;padding:16px 0;">
       ✓ Messaggio inviato — ti rispondo entro 24 ore.
@@ -734,7 +750,13 @@ footer { background: var(--black); padding: 64px 48px 32px; border-top: 1px soli
     </div>
   </div>
   <div class="footer-bottom">
-    <span class="footer-copy">© 2025 BiscaLab · Carmine Bisogno · Tutti i diritti riservati</span>
+    <div class="footer-copy-wrap">
+      <span class="footer-copy">© 2026 BiscaLab · Carmine Bisogno · P.IVA 11414840014</span>
+      <div class="footer-legal-links">
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="cookie-policy.html">Cookie Policy</a>
+      </div>
+    </div>
     <span class="footer-loc">Bangkok, Thailand</span>
   </div>
 </footer>
@@ -833,5 +855,49 @@ window.addEventListener('scroll',()=>{
 });
 
 </script>
+<!-- COOKIE BANNER -->
+<div id="cookie-banner" class="cookie-banner" role="dialog" aria-label="Avviso cookie" aria-live="polite">
+  <div class="cookie-text">
+    <strong>Cookie & Privacy.</strong> Questo sito usa solo cookie tecnici, necessari al funzionamento. Non uso strumenti di profilazione né di marketing. Per i dettagli leggi la <a href="cookie-policy.html">Cookie Policy</a> e la <a href="privacy-policy.html">Privacy Policy</a>.
+  </div>
+  <button id="cookie-accept" class="cookie-btn" type="button">Ho capito</button>
+</div>
+
+<style>
+.cookie-banner { position: fixed; bottom: 24px; left: 24px; right: 24px; max-width: 720px; margin: 0 auto; background: rgba(20,18,16,0.96); backdrop-filter: blur(12px); border: 1px solid var(--border); padding: 20px 24px; z-index: 9000; display: none; align-items: center; gap: 20px; box-shadow: 0 12px 40px rgba(0,0,0,0.6); flex-wrap: wrap; }
+.cookie-banner.visible { display: flex; animation: cookieSlideUp 0.4s ease-out; }
+@keyframes cookieSlideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+.cookie-text { font-family: 'Cormorant Garamond', serif; font-size: 15px; line-height: 1.55; color: rgba(247,243,236,0.85); flex: 1; min-width: 240px; }
+.cookie-text strong { color: var(--cream); font-weight: 600; }
+.cookie-text a { color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(200,151,58,0.4); transition: border-color 0.3s; }
+.cookie-text a:hover { border-color: var(--gold); }
+.cookie-btn { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--black); background: var(--gold); border: none; padding: 12px 24px; cursor: pointer; transition: background 0.3s; flex-shrink: 0; }
+.cookie-btn:hover { background: var(--gold-light); }
+@media (max-width: 600px) {
+  .cookie-banner { left: 12px; right: 12px; bottom: 12px; padding: 16px 18px; gap: 14px; }
+  .cookie-text { font-size: 14px; }
+  .cookie-btn { width: 100%; padding: 14px; }
+}
+</style>
+
+<script>
+(function() {
+  var KEY = 'biscalab_cookie_ack_v1';
+  var banner = document.getElementById('cookie-banner');
+  var btn = document.getElementById('cookie-accept');
+  try {
+    if (!localStorage.getItem(KEY)) {
+      setTimeout(function() { banner.classList.add('visible'); }, 800);
+    }
+  } catch(e) {
+    setTimeout(function() { banner.classList.add('visible'); }, 800);
+  }
+  btn.addEventListener('click', function() {
+    banner.classList.remove('visible');
+    try { localStorage.setItem(KEY, '1'); } catch(e) {}
+  });
+})();
+</script>
+
 </body>
 </html>
