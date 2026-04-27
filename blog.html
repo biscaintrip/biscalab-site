@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog — BiscaLab</title>
+<meta name="description" content="Riflessioni, guide e racconti sulla Thailandia: trasferimento, investimenti, viaggi, food e vita a Bangkok. Direttamente da chi ci vive.">
+<meta property="og:title" content="Blog — BiscaLab">
+<meta property="og:description" content="Articoli su Thailandia, business, viaggi e food da Bangkok.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://biscalab.com/blog.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Mono:wght@300;400&family=Unbounded:wght@200;300;400;700&display=swap" rel="stylesheet">
+
+<script>
+(function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+.push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+(window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+ml('account', '2294597');
+</script>
+
+<style>
+:root { --cream:#F7F3EC; --cream-soft:#EFE9DD; --black:#0E0C0A; --gold:#C8973A; --gold-light:#E8B85A; --warm-grey:#8B8478; --dark-surface:#141210; --border:rgba(200,151,58,0.18); }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--black); color: var(--cream); font-family: 'Cormorant Garamond', Georgia, serif; font-size: 17px; line-height: 1.7; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+
+/* NAV */
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; justify-content: space-between; align-items: center; padding: 18px 48px; background: rgba(14,12,10,0.92); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+.nav-logo { font-family: 'Unbounded', sans-serif; font-size: 14px; font-weight: 300; letter-spacing: 0.22em; color: var(--cream); }
+.nav-logo span { color: var(--gold); }
+.nav-links { display: flex; gap: 36px; list-style: none; }
+.nav-links a { font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--cream); opacity: 0.75; transition: opacity 0.3s, color 0.3s; padding: 6px 0; position: relative; }
+.nav-links a:hover, .nav-links a.active { opacity: 1; color: var(--gold); }
+.nav-links a.active::after { content: ''; position: absolute; bottom: -2px; left: 0; right: 0; height: 1px; background: var(--gold); }
+.nav-toggle { display: none; background: none; border: none; cursor: pointer; width: 32px; height: 32px; padding: 0; }
+.nav-toggle span { display: block; height: 1px; background: var(--cream); margin: 7px 0; transition: transform 0.3s, opacity 0.3s; }
+.nav-toggle.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.nav-toggle.active span:nth-child(2) { opacity: 0; }
+.nav-toggle.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+.mobile-menu { position: fixed; top: 0; right: 0; bottom: 0; width: 80%; max-width: 320px; background: var(--black); border-left: 1px solid var(--border); padding: 100px 32px 32px; transform: translateX(100%); transition: transform 0.4s; z-index: 999; display: flex; flex-direction: column; gap: 8px; }
+.mobile-menu.open { transform: translateX(0); }
+.mobile-menu a { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 300; color: var(--cream); padding: 14px 0; border-bottom: 1px solid var(--border); transition: color 0.3s; }
+.mobile-menu a:hover, .mobile-menu a.active { color: var(--gold); }
+@media (max-width: 880px) { .nav { padding: 16px 24px; } .nav-links { display: none; } .nav-toggle { display: block; } }
+
+/* HERO */
+.page-hero { padding: 160px 48px 70px; text-align: center; background: linear-gradient(180deg, var(--black) 0%, #1a1612 100%); position: relative; overflow: hidden; }
+.page-hero::before { content: ''; position: absolute; top: -30%; right: -20%; width: 600px; height: 600px; background: radial-gradient(circle, rgba(200,151,58,0.07) 0%, transparent 70%); pointer-events: none; }
+.page-hero-inner { max-width: 900px; margin: 0 auto; position: relative; }
+.page-hero-tag { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.4em; color: var(--gold); text-transform: uppercase; margin-bottom: 24px; display: inline-flex; align-items: center; gap: 14px; }
+.page-hero-tag::before { content: ''; width: 32px; height: 1px; background: var(--gold); }
+.page-hero-tag::after { content: ''; width: 32px; height: 1px; background: var(--gold); }
+.page-hero-title { font-size: clamp(44px, 6.5vw, 84px); font-weight: 300; line-height: 1.0; letter-spacing: -0.02em; margin-bottom: 28px; }
+.page-hero-title em { font-style: italic; color: var(--gold); font-weight: 400; }
+.page-hero-subtitle { font-size: clamp(17px, 1.5vw, 20px); line-height: 1.7; color: rgba(247,243,236,0.78); max-width: 680px; margin: 0 auto; }
+.page-hero-subtitle em { color: var(--gold); font-style: italic; }
+@media (max-width: 880px) { .page-hero { padding: 130px 24px 50px; } }
+
+/* FILTRI CATEGORIE */
+.filters { padding: 30px 48px 50px; background: var(--black); border-bottom: 1px solid var(--border); }
+.filters-inner { max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+.filter-btn { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; padding: 12px 22px; background: transparent; color: rgba(247,243,236,0.7); border: 1px solid var(--border); cursor: pointer; transition: color 0.3s, border-color 0.3s, background 0.3s; }
+.filter-btn:hover { color: var(--gold); border-color: var(--gold); }
+.filter-btn.active { background: var(--gold); color: var(--black); border-color: var(--gold); }
+@media (max-width: 880px) { .filters { padding: 20px 16px 40px; } .filters-inner { gap: 8px; } .filter-btn { padding: 10px 14px; font-size: 10px; } }
+
+/* GRID ARTICOLI */
+.articles-section { padding: 60px 48px 100px; background: var(--black); }
+.articles-inner { max-width: 1200px; margin: 0 auto; }
+.articles-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 32px; }
+
+/* ARTICLE CARD */
+.article-card { background: var(--dark-surface); border: 1px solid var(--border); display: flex; flex-direction: column; overflow: hidden; transition: border-color 0.3s, transform 0.3s; cursor: pointer; }
+.article-card:hover { border-color: var(--gold); transform: translateY(-4px); }
+.article-card-cover { aspect-ratio: 16/10; background: linear-gradient(135deg, var(--gold) 0%, #d4a44a 100%); position: relative; overflow: hidden; padding: 30px 28px; display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.5s; }
+.article-card:hover .article-card-cover { transform: scale(1.02); }
+.article-card-cover::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(circle at 80% 20%, rgba(14,12,10,0.0) 0%, rgba(14,12,10,0.25) 100%); pointer-events: none; }
+.article-card-category { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.3em; color: var(--black); text-transform: uppercase; opacity: 0.85; position: relative; z-index: 2; }
+.article-card-cover-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(22px, 2.5vw, 28px); font-weight: 400; line-height: 1.15; color: var(--black); position: relative; z-index: 2; letter-spacing: -0.005em; }
+.article-card-cover-title em { font-style: italic; }
+
+/* Cover variants per categoria (sfondo diverso) */
+.cover-trasferimento { background: linear-gradient(135deg, #C8973A 0%, #d4a44a 100%); }
+.cover-investimenti { background: linear-gradient(135deg, #1a1612 0%, #2a2018 100%); }
+.cover-investimenti .article-card-category, .cover-investimenti .article-card-cover-title { color: var(--cream); }
+.cover-investimenti .article-card-category { color: var(--gold); }
+.cover-viaggi { background: linear-gradient(135deg, #5BA663 0%, #4a8851 100%); }
+.cover-viaggi .article-card-category, .cover-viaggi .article-card-cover-title { color: var(--cream); }
+.cover-food { background: linear-gradient(135deg, #c0392b 0%, #a32f24 100%); }
+.cover-food .article-card-category, .cover-food .article-card-cover-title { color: var(--cream); }
+.cover-bangkok { background: linear-gradient(135deg, #2c2c54 0%, #1e1e3f 100%); }
+.cover-bangkok .article-card-category, .cover-bangkok .article-card-cover-title { color: var(--cream); }
+.cover-bangkok .article-card-category { color: var(--gold-light); }
+
+.article-card-body { padding: 30px 28px; flex: 1; display: flex; flex-direction: column; }
+.article-card-meta { display: flex; gap: 14px; align-items: center; margin-bottom: 16px; flex-wrap: wrap; }
+.article-card-date { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.18em; color: var(--warm-grey); text-transform: uppercase; }
+.article-card-readtime { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.18em; color: var(--gold); text-transform: uppercase; }
+.article-card-readtime::before { content: '·'; margin-right: 8px; color: var(--warm-grey); }
+.article-card-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(22px, 2.4vw, 26px); font-weight: 400; line-height: 1.25; color: var(--cream); margin-bottom: 14px; letter-spacing: -0.005em; }
+.article-card-excerpt { font-size: 16px; line-height: 1.6; color: rgba(247,243,236,0.75); font-weight: 300; margin-bottom: 22px; flex-grow: 1; }
+.article-card-cta { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.22em; color: var(--gold); text-transform: uppercase; margin-top: auto; padding-top: 18px; border-top: 1px solid var(--border); transition: color 0.3s; }
+.article-card:hover .article-card-cta { color: var(--gold-light); }
+
+/* PLACEHOLDER "in arrivo" */
+.coming-soon { background: var(--dark-surface); border: 1px dashed var(--border); padding: 60px 28px; text-align: center; display: flex; flex-direction: column; gap: 14px; align-items: center; justify-content: center; min-height: 380px; }
+.coming-soon-icon { width: 50px; height: 50px; border: 1px solid var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--gold); font-family: 'Unbounded', sans-serif; font-weight: 300; font-size: 20px; }
+.coming-soon-title { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 400; color: rgba(247,243,236,0.7); font-style: italic; }
+.coming-soon-text { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.22em; color: var(--gold); text-transform: uppercase; }
+
+/* EMPTY STATE quando filtro non ha risultati */
+.empty-state { text-align: center; padding: 80px 24px; color: var(--warm-grey); font-size: 17px; font-style: italic; display: none; }
+.empty-state.show { display: block; }
+.articles-grid.hidden-grid { display: none; }
+
+@media (max-width: 880px) {
+  .articles-section { padding: 40px 24px 80px; }
+  .articles-grid { grid-template-columns: 1fr; gap: 24px; }
+}
+
+/* NEWSLETTER */
+.newsletter { padding: 100px 48px; background: var(--dark-surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.newsletter-inner { max-width: 720px; margin: 0 auto; text-align: center; }
+.newsletter-eyebrow { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.4em; color: var(--gold); text-transform: uppercase; margin-bottom: 18px; display: block; }
+.newsletter-title { font-size: clamp(30px, 4vw, 48px); font-weight: 300; line-height: 1.1; letter-spacing: -0.01em; margin-bottom: 20px; }
+.newsletter-title em { font-style: italic; color: var(--gold); }
+.newsletter-subtitle { font-size: 17px; line-height: 1.65; color: rgba(247,243,236,0.78); margin-bottom: 36px; max-width: 540px; margin-left: auto; margin-right: auto; }
+
+.ml-form-style-override .ml-embedded { background: transparent !important; }
+.ml-form-style-override .ml-form-embedContainer .ml-form-embedWrapper { background: transparent !important; border: none !important; }
+.ml-form-style-override .ml-form-embedContent { display: none !important; }
+.ml-form-style-override .ml-form-embedBody { padding: 0 !important; background: transparent !important; }
+.ml-form-style-override .ml-form-embedBody form { background: transparent !important; }
+.ml-form-style-override .ml-form-fieldRow input[type="email"], .ml-form-style-override .ml-form-fieldRow input[type="text"] { background: rgba(247,243,236,0.05) !important; color: var(--cream) !important; border: 1px solid var(--border) !important; padding: 16px 20px !important; font-family: 'Cormorant Garamond', Georgia, serif !important; font-size: 17px !important; border-radius: 0 !important; height: auto !important; line-height: 1.5 !important; }
+.ml-form-style-override .ml-form-fieldRow input::placeholder { color: var(--warm-grey) !important; opacity: 0.7 !important; }
+.ml-form-style-override .ml-form-embedSubmit button[type="submit"] { background: var(--gold) !important; color: var(--black) !important; border: none !important; border-radius: 0 !important; padding: 18px 28px !important; font-family: 'DM Mono', monospace !important; font-size: 12px !important; font-weight: 400 !important; letter-spacing: 0.25em !important; text-transform: uppercase !important; cursor: pointer; transition: background 0.3s !important; width: 100% !important; }
+.ml-form-style-override .ml-form-embedSubmit button[type="submit"]:hover { background: var(--gold-light) !important; }
+.ml-form-style-override .ml-form-checkboxRow .label-description, .ml-form-style-override .ml-form-checkboxRow label, .ml-form-style-override .ml-form-checkboxRow label p, .ml-form-style-override .ml-form-embedPermissions p { color: rgba(247,243,236,0.7) !important; font-family: 'Cormorant Garamond', Georgia, serif !important; font-size: 13px !important; line-height: 1.55 !important; }
+.ml-form-style-override .ml-form-checkboxRow label a, .ml-form-style-override .ml-form-embedPermissions p a { color: var(--gold) !important; }
+.ml-form-style-override .ml-form-successContent h4, .ml-form-style-override .ml-form-successContent p { color: var(--cream) !important; font-family: 'Cormorant Garamond', Georgia, serif !important; }
+
+@media (max-width: 880px) { .newsletter { padding: 70px 24px; } }
+
+/* FOOTER */
+footer { background: #0a0908; border-top: 1px solid var(--border); padding: 80px 48px 32px; }
+.footer-top { max-width: 1200px; margin: 0 auto 56px; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 80px; align-items: start; }
+.footer-brand { max-width: 380px; }
+.footer-brand-name { font-family: 'Unbounded', sans-serif; font-size: 22px; font-weight: 300; letter-spacing: 0.22em; margin-bottom: 20px; }
+.footer-brand-name span { color: var(--gold); }
+.footer-tagline { font-style: italic; color: rgba(247,243,236,0.7); font-size: 16px; line-height: 1.65; margin-bottom: 28px; }
+.footer-social { display: flex; gap: 12px; }
+.footer-social a { width: 42px; height: 42px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid var(--border); color: rgba(247,243,236,0.7); transition: color 0.3s, border-color 0.3s, background 0.3s; border-radius: 50%; }
+.footer-social a svg { width: 18px; height: 18px; display: block; }
+.footer-social a:hover { color: var(--black); border-color: var(--gold); background: var(--gold); }
+.footer-col { padding-top: 6px; }
+.footer-col-title { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.3em; color: var(--gold); text-transform: uppercase; margin-bottom: 22px; }
+.footer-links { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.footer-links a { color: rgba(247,243,236,0.72); font-size: 16px; transition: color 0.3s; }
+.footer-links a:hover { color: var(--gold); }
+.footer-bottom { max-width: 1200px; margin: 0 auto; padding-top: 28px; border-top: 1px solid rgba(200,151,58,0.1); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+.footer-copy { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: var(--warm-grey); opacity: 0.6; }
+@media (max-width: 880px) { footer { padding: 50px 24px 24px; } .footer-top { grid-template-columns: 1fr; gap: 36px; } .footer-bottom { flex-direction: column; align-items: flex-start; } }
+
+/* COOKIE BANNER */
+.cookie-banner { position: fixed; bottom: 24px; left: 24px; right: 24px; max-width: 720px; margin: 0 auto; background: rgba(20,18,16,0.96); backdrop-filter: blur(12px); border: 1px solid var(--border); padding: 22px 26px; z-index: 9000; display: none; align-items: center; gap: 22px; box-shadow: 0 12px 40px rgba(0,0,0,0.6); flex-wrap: wrap; }
+.cookie-banner.visible { display: flex; }
+.cookie-text { font-size: 15px; line-height: 1.55; color: rgba(247,243,236,0.85); flex: 1; min-width: 240px; }
+.cookie-text strong { color: var(--cream); font-weight: 600; }
+.cookie-text a { color: var(--gold); border-bottom: 1px solid rgba(200,151,58,0.4); }
+.cookie-btn { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--black); background: var(--gold); border: none; cursor: pointer; padding: 12px 24px; }
+.cookie-btn:hover { background: var(--gold-light); }
+@media (max-width: 600px) { .cookie-banner { left: 12px; right: 12px; bottom: 12px; padding: 18px; gap: 14px; } .cookie-btn { width: 100%; padding: 14px; } }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="nav-logo">BISCA<span>LAB</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="consulenze.html">Consulenze</a></li>
+    <li><a href="prodotti.html">Prodotti</a></li>
+    <li><a href="blog.html" class="active">Blog</a></li>
+    <li><a href="contatti.html">Contatti</a></li>
+  </ul>
+  <button class="nav-toggle" id="navToggle" aria-label="Apri menu"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a>
+  <a href="consulenze.html">Consulenze</a>
+  <a href="prodotti.html">Prodotti</a>
+  <a href="blog.html" class="active">Blog</a>
+  <a href="contatti.html">Contatti</a>
+</div>
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <span class="page-hero-tag">Blog</span>
+    <h1 class="page-hero-title">Riflessioni<br><em>e racconti.</em></h1>
+    <p class="page-hero-subtitle">Articoli su Thailandia, viaggi, business e vita a Bangkok. <em>Scritti da chi ci vive</em>, non da chi ci passa una settimana all'anno.</p>
+  </div>
+</section>
+
+<section class="filters">
+  <div class="filters-inner">
+    <button class="filter-btn active" data-category="all">Tutti</button>
+    <button class="filter-btn" data-category="trasferimento">Trasferimento</button>
+    <button class="filter-btn" data-category="investimenti">Investimenti</button>
+    <button class="filter-btn" data-category="viaggi">Viaggi</button>
+    <button class="filter-btn" data-category="food">Food</button>
+    <button class="filter-btn" data-category="bangkok">Vita a Bangkok</button>
+  </div>
+</section>
+
+<section class="articles-section">
+  <div class="articles-inner">
+    <div class="articles-grid" id="articlesGrid">
+
+      <!-- ARTICOLO 1 -->
+      <a class="article-card" data-category="bangkok" href="blog/bangkok-notte-2026.html">
+        <div class="article-card-cover cover-bangkok">
+          <span class="article-card-category">Vita a Bangkok</span>
+          <h3 class="article-card-cover-title">Bangkok di notte<br><em>2026</em></h3>
+        </div>
+        <div class="article-card-body">
+          <div class="article-card-meta">
+            <span class="article-card-date">27 aprile 2026</span>
+            <span class="article-card-readtime">5 min di lettura</span>
+          </div>
+          <h2 class="article-card-title">Bangkok di notte 2026: rooftop, speakeasy e indirizzi da insider</h2>
+          <p class="article-card-excerpt">La nightlife di Bangkok nel 2026 non è quella delle guide del 2019. Rooftop, speakeasy e i posti dove vanno davvero locali ed expat — non i turisti.</p>
+          <span class="article-card-cta">Leggi l'articolo →</span>
+        </div>
+      </a>
+
+      <!-- PLACEHOLDER prossimo articolo -->
+      <div class="coming-soon">
+        <div class="coming-soon-icon">+</div>
+        <p class="coming-soon-title">Prossimo articolo<br>in arrivo presto</p>
+        <p class="coming-soon-text">Stay tuned</p>
+      </div>
+
+    </div>
+
+    <p class="empty-state" id="emptyState">Nessun articolo in questa categoria — per ora.</p>
+  </div>
+</section>
+
+<section class="newsletter">
+  <div class="newsletter-inner">
+    <span class="newsletter-eyebrow">Resta aggiornato</span>
+    <h2 class="newsletter-title">Non perderti<br>il <em>prossimo articolo.</em></h2>
+    <p class="newsletter-subtitle">Iscriviti per ricevere ogni nuovo articolo direttamente in casella. Niente spam, niente fuffa — solo contenuti che ha senso leggere.</p>
+    <div class="ml-form-style-override">
+      <div class="ml-embedded" data-form="wamvxR"></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-brand-name">BISCA<span>LAB</span></div>
+      <p class="footer-tagline">Aiuto gli italiani a capire davvero la Thailandia. Da Bangkok.</p>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/iam.bisca" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+          </svg>
+        </a>
+        <a href="https://www.tiktok.com/@iam.bisca" target="_blank" rel="noopener" aria-label="TikTok">
+          <svg viewBox="0 0 24 24" fill="currentColor" stroke="none">
+            <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43V8.95a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.84-.38z"/>
+          </svg>
+        </a>
+        <a href="https://www.youtube.com/@iam.bisca" target="_blank" rel="noopener" aria-label="YouTube">
+          <svg viewBox="0 0 24 24" fill="currentColor" stroke="none">
+            <path d="M23.498 6.186a2.999 2.999 0 0 0-2.111-2.124C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.387.517A2.999 2.999 0 0 0 .502 6.186C0 8.082 0 12 0 12s0 3.918.502 5.814a2.999 2.999 0 0 0 2.111 2.124c1.882.517 9.387.517 9.387.517s7.505 0 9.387-.517a2.999 2.999 0 0 0 2.111-2.124C24 15.918 24 12 24 12s0-3.918-.502-5.814zM9.546 15.568V8.432L15.818 12l-6.272 3.568z"/>
+          </svg>
+        </a>
+        <a href="https://www.facebook.com/share/1H1JxeULYV/" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor" stroke="none">
+            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Esplora</div>
+      <ul class="footer-links">
+        <li><a href="consulenze.html">Consulenze</a></li>
+        <li><a href="prodotti.html">Prodotti</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contatti.html">Contatti</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Legal</div>
+      <ul class="footer-links">
+        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+        <li><a href="cookie-policy.html">Cookie Policy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 BiscaLab · Carmine Bisogno · P.IVA 11414840014</span>
+    <span class="footer-copy">Bangkok, Thailand</span>
+  </div>
+</footer>
+
+<div id="cookie-banner" class="cookie-banner" role="dialog" aria-label="Avviso cookie" aria-live="polite">
+  <div class="cookie-text"><strong>Cookie & Privacy.</strong> Questo sito usa solo cookie tecnici, necessari al funzionamento. Non uso strumenti di profilazione né di marketing. Per i dettagli leggi la <a href="cookie-policy.html">Cookie Policy</a> e la <a href="privacy-policy.html">Privacy Policy</a>.</div>
+  <button id="cookie-accept" class="cookie-btn" type="button">Ho capito</button>
+</div>
+
+<script>
+const navToggle = document.getElementById('navToggle');
+const mobileMenu = document.getElementById('mobileMenu');
+navToggle.addEventListener('click', function() { this.classList.toggle('active'); mobileMenu.classList.toggle('open'); document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : ''; });
+document.querySelectorAll('.mobile-menu a').forEach(a => { a.addEventListener('click', () => { navToggle.classList.remove('active'); mobileMenu.classList.remove('open'); document.body.style.overflow = ''; }); });
+
+// FILTRI BLOG
+const filterBtns = document.querySelectorAll('.filter-btn');
+const articleCards = document.querySelectorAll('.article-card');
+const comingSoon = document.querySelector('.coming-soon');
+const emptyState = document.getElementById('emptyState');
+
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    filterBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const cat = btn.getAttribute('data-category');
+    let visibleCount = 0;
+    articleCards.forEach(card => {
+      const cardCat = card.getAttribute('data-category');
+      if (cat === 'all' || cardCat === cat) {
+        card.style.display = '';
+        visibleCount++;
+      } else {
+        card.style.display = 'none';
+      }
+    });
+    if (comingSoon) comingSoon.style.display = (cat === 'all') ? '' : 'none';
+    if (emptyState) {
+      if (visibleCount === 0) emptyState.classList.add('show');
+      else emptyState.classList.remove('show');
+    }
+  });
+});
+
+(function() { var KEY='biscalab_cookie_ack_v1'; var b=document.getElementById('cookie-banner'); var bt=document.getElementById('cookie-accept'); try{if(!localStorage.getItem(KEY)){setTimeout(function(){b.classList.add('visible');},800);}}catch(e){setTimeout(function(){b.classList.add('visible');},800);} bt.addEventListener('click',function(){b.classList.remove('visible'); try{localStorage.setItem(KEY,'1');}catch(e){}}); })();
+</script>
+</body>
+</html>

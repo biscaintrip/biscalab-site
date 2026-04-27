@@ -1,0 +1,1355 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BiscaLab — Carmine Bisogno · Consulente Thailandia, business e food</title>
+<meta name="description" content="Carmine Bisogno (Bisca), consulente per chi vuole capire davvero la Thailandia: viaggi, trasferimenti, business, food. Da Bangkok.">
+<meta property="og:title" content="BiscaLab — Bisca · Thailandia, business, food">
+<meta property="og:description" content="Aiuto gli italiani che vogliono capire la Thailandia. Da Bangkok.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://biscalab.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Mono:wght@300;400&family=Unbounded:wght@200;300;400;700&display=swap" rel="stylesheet">
+
+<!-- MailerLite Universal -->
+<script>
+(function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+.push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+(window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+ml('account', '2294597');
+</script>
+
+<style>
+:root {
+  --cream: #F7F3EC;
+  --cream-soft: #EFE9DD;
+  --black: #0E0C0A;
+  --gold: #C8973A;
+  --gold-light: #E8B85A;
+  --warm-grey: #8B8478;
+  --dark-surface: #141210;
+  --border: rgba(200,151,58,0.18);
+  --shadow: 0 20px 50px rgba(0,0,0,0.4);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--black);
+  color: var(--cream);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 17px;
+  line-height: 1.7;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+
+/* ======================================
+   NAV — fissa, presente in TUTTE le pagine
+   ====================================== */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 18px 48px;
+  background: rgba(14,12,10,0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  letter-spacing: 0.22em;
+  color: var(--cream);
+}
+.nav-logo span { color: var(--gold); }
+.nav-links {
+  display: flex; gap: 36px;
+  list-style: none;
+}
+.nav-links a {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cream);
+  opacity: 0.75;
+  transition: opacity 0.3s, color 0.3s;
+  padding: 6px 0;
+  position: relative;
+}
+.nav-links a:hover, .nav-links a.active { opacity: 1; color: var(--gold); }
+.nav-links a.active::after {
+  content: ''; position: absolute; bottom: -2px; left: 0; right: 0;
+  height: 1px; background: var(--gold);
+}
+.nav-toggle {
+  display: none;
+  background: none; border: none; cursor: pointer;
+  width: 32px; height: 32px;
+  padding: 0;
+}
+.nav-toggle span {
+  display: block; height: 1px; background: var(--cream);
+  margin: 7px 0; transition: transform 0.3s, opacity 0.3s;
+}
+.nav-toggle.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.nav-toggle.active span:nth-child(2) { opacity: 0; }
+.nav-toggle.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+/* mobile menu drawer */
+.mobile-menu {
+  position: fixed; top: 0; right: 0; bottom: 0;
+  width: 80%; max-width: 320px;
+  background: var(--black);
+  border-left: 1px solid var(--border);
+  padding: 100px 32px 32px;
+  transform: translateX(100%);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 999;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.mobile-menu.open { transform: translateX(0); }
+.mobile-menu a {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  font-weight: 300;
+  color: var(--cream);
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+  transition: color 0.3s;
+}
+.mobile-menu a:hover, .mobile-menu a.active { color: var(--gold); }
+.mobile-menu a em { font-style: italic; color: var(--gold); }
+
+@media (max-width: 880px) {
+  .nav { padding: 16px 24px; }
+  .nav-links { display: none; }
+  .nav-toggle { display: block; }
+}
+
+/* ======================================
+   HERO — chi sono + CTA
+   ====================================== */
+.hero {
+  min-height: 100vh;
+  padding: 140px 48px 80px;
+  display: flex; align-items: center;
+  background: linear-gradient(180deg, var(--black) 0%, #1a1612 100%);
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; top: -50%; right: -30%;
+  width: 800px; height: 800px;
+  background: radial-gradient(circle, rgba(200,151,58,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-inner {
+  max-width: 1200px; margin: 0 auto; width: 100%;
+  position: relative;
+}
+.hero-tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.4em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 32px;
+  display: inline-flex; align-items: center; gap: 14px;
+}
+.hero-tag::before { content: ''; width: 32px; height: 1px; background: var(--gold); }
+.hero-title {
+  font-size: clamp(44px, 7vw, 96px);
+  font-weight: 300;
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+  margin-bottom: 32px;
+  max-width: 1000px;
+}
+.hero-title em {
+  font-style: italic;
+  color: var(--gold);
+  font-weight: 400;
+}
+.hero-bio {
+  font-size: clamp(17px, 1.5vw, 19px);
+  line-height: 1.75;
+  color: rgba(247,243,236,0.82);
+  font-weight: 300;
+  max-width: 720px;
+  margin-bottom: 28px;
+}
+.hero-bio p { margin-bottom: 20px; }
+.hero-bio em { color: var(--gold); font-style: italic; }
+.hero-bio strong { color: var(--cream); font-weight: 500; }
+
+/* Hero lead — sotto-bio breve sotto al titolo */
+.hero-lead {
+  font-size: clamp(19px, 1.8vw, 24px);
+  line-height: 1.6;
+  color: rgba(247,243,236,0.85);
+  font-weight: 300;
+  max-width: 720px;
+  margin-bottom: 56px;
+}
+.hero-lead strong { color: var(--cream); font-weight: 500; }
+.hero-lead em { color: var(--gold); font-style: italic; }
+
+/* CTA card grandi sotto l'hero (sostituiscono i bottoni piatti) */
+.hero-cta-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  max-width: 720px;
+  margin-top: 16px;
+}
+.cta-card {
+  position: relative;
+  background: var(--gold);
+  color: var(--black);
+  padding: 32px 32px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 160px;
+  text-decoration: none;
+  transition: background 0.3s, transform 0.25s;
+  overflow: hidden;
+}
+.cta-card:hover { background: var(--gold-light); transform: translateY(-4px); }
+.cta-card-arrow {
+  position: absolute;
+  top: 24px;
+  right: 28px;
+  font-family: 'DM Mono', monospace;
+  font-size: 24px;
+  font-weight: 300;
+  color: var(--black);
+  opacity: 0.45;
+  transition: opacity 0.3s, transform 0.3s;
+}
+.cta-card:hover .cta-card-arrow { opacity: 1; transform: translateX(4px); }
+.cta-card-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(22px, 2.4vw, 30px);
+  font-weight: 500;
+  line-height: 1.15;
+  margin-bottom: 6px;
+  color: var(--black);
+}
+.cta-card-sub {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--black);
+  opacity: 0.7;
+  font-weight: 400;
+  line-height: 1.5;
+}
+.cta-card-ghost {
+  background: transparent;
+  color: var(--cream);
+  border: 1px solid var(--border);
+}
+.cta-card-ghost:hover { background: rgba(200,151,58,0.06); border-color: var(--gold); }
+.cta-card-ghost .cta-card-arrow { color: var(--gold); opacity: 0.6; }
+.cta-card-ghost .cta-card-title { color: var(--cream); }
+.cta-card-ghost:hover .cta-card-title { color: var(--gold); }
+.cta-card-ghost .cta-card-sub { color: var(--cream); opacity: 0.55; }
+
+.hero-cta {
+  display: flex; gap: 18px; flex-wrap: wrap;
+  margin-top: 16px;
+}
+.btn {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  padding: 18px 32px;
+  border: none; cursor: pointer;
+  transition: background 0.3s, color 0.3s, transform 0.2s;
+}
+.btn-primary {
+  background: var(--gold);
+  color: var(--black);
+}
+.btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+.btn-ghost {
+  background: transparent;
+  color: var(--cream);
+  border: 1px solid var(--border);
+}
+.btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+@media (max-width: 880px) {
+  .hero { padding: 120px 24px 60px; min-height: auto; }
+  .hero-lead { font-size: 18px; margin-bottom: 40px; }
+  .hero-cta-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .cta-card {
+    min-height: 140px;
+    padding: 28px 24px 24px;
+  }
+  .cta-card-arrow { top: 20px; right: 22px; font-size: 22px; }
+  .cta-card-title { font-size: 26px; }
+}
+
+/* ======================================
+   SEZIONI BASE
+   ====================================== */
+section { padding: 100px 48px; }
+.section-inner { max-width: 1200px; margin: 0 auto; }
+.section-header { text-align: center; margin-bottom: 64px; }
+.section-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.4em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 18px;
+  display: block;
+}
+.section-title {
+  font-size: clamp(34px, 4.5vw, 56px);
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.section-title em { font-style: italic; color: var(--gold); }
+.section-subtitle {
+  font-size: 18px;
+  line-height: 1.7;
+  color: rgba(247,243,236,0.7);
+  max-width: 640px;
+  margin: 24px auto 0;
+}
+
+@media (max-width: 880px) {
+  section { padding: 70px 24px; }
+  .section-header { margin-bottom: 44px; }
+}
+
+/* ======================================
+   CHI SONO (about)
+   ====================================== */
+.about {
+  padding: 110px 48px;
+  background: linear-gradient(180deg, #1a1612 0%, var(--black) 100%);
+}
+.about-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 0.85fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.about-photo-wrap {
+  position: relative;
+}
+.about-photo {
+  position: relative;
+  aspect-ratio: 4/5;
+  background: var(--dark-surface);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.about-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: contrast(1.02);
+}
+.photo-fallback-text {
+  position: absolute;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  color: var(--warm-grey);
+  text-transform: uppercase;
+  opacity: 0;
+  pointer-events: none;
+}
+.about-photo.photo-fallback .photo-fallback-text { opacity: 0.5; }
+.about-photo-caption {
+  position: absolute;
+  bottom: -28px;
+  left: 0;
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--warm-grey);
+  text-transform: uppercase;
+  opacity: 0.55;
+}
+
+.about-text-wrap { padding-top: 12px; }
+.about-title {
+  font-size: clamp(36px, 4.5vw, 56px);
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  margin: 16px 0 36px;
+}
+.about-title em { font-style: italic; color: var(--gold); font-weight: 400; }
+
+.about-bio {
+  font-size: clamp(17px, 1.4vw, 19px);
+  line-height: 1.75;
+  color: rgba(247,243,236,0.85);
+  font-weight: 300;
+  max-width: 580px;
+}
+.about-bio p { margin-bottom: 22px; }
+.about-bio p:last-child { margin-bottom: 0; }
+.about-bio em { color: var(--gold); font-style: italic; }
+.about-bio strong { color: var(--cream); font-weight: 500; }
+
+.about-creds {
+  display: flex;
+  gap: 48px;
+  margin-top: 44px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+.cred-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.cred-num {
+  font-family: 'Unbounded', sans-serif;
+  font-size: clamp(22px, 2.4vw, 28px);
+  font-weight: 400;
+  color: var(--gold);
+  line-height: 1;
+}
+.cred-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--warm-grey);
+  text-transform: uppercase;
+}
+
+@media (max-width: 880px) {
+  .about { padding: 70px 24px; }
+  .about-inner {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+  .about-photo-wrap { max-width: 380px; margin: 0 auto; width: 100%; }
+  .about-text-wrap { padding-top: 0; }
+  .about-creds { gap: 32px; margin-top: 32px; padding-top: 24px; }
+}
+
+/* ======================================
+   CASI STUDIO
+   ====================================== */
+.cases { background: var(--dark-surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.cases-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+  gap: 28px;
+}
+.case {
+  background: var(--black);
+  padding: 40px 32px;
+  border-left: 2px solid var(--gold);
+  position: relative;
+  transition: transform 0.3s;
+}
+.case:hover { transform: translateY(-4px); }
+.case-num {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 11px;
+  font-weight: 300;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  margin-bottom: 18px;
+  text-transform: uppercase;
+}
+.case-quote {
+  font-size: 19px;
+  font-style: italic;
+  font-weight: 300;
+  line-height: 1.65;
+  color: var(--cream);
+  margin-bottom: 24px;
+}
+.case-quote::before { content: '"'; color: var(--gold); font-size: 32px; font-style: normal; line-height: 0; vertical-align: -8px; margin-right: 4px; }
+.case-result {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  color: var(--gold);
+  text-transform: uppercase;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+}
+.case-meta {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: var(--warm-grey);
+  text-transform: uppercase;
+  margin-bottom: 18px;
+  opacity: 0.7;
+}
+.cases-disclaimer {
+  text-align: center;
+  margin-top: 40px;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--warm-grey);
+  text-transform: uppercase;
+  opacity: 0.55;
+}
+
+/* ======================================
+   NEWSLETTER (MailerLite + design wrap)
+   ====================================== */
+.newsletter {
+  background: linear-gradient(180deg, #1a1612 0%, var(--black) 100%);
+  text-align: center;
+}
+.newsletter-wrap { max-width: 640px; margin: 0 auto; }
+.newsletter-desc {
+  font-size: 18px; line-height: 1.7;
+  color: rgba(247,243,236,0.78);
+  margin: 24px auto 40px;
+  max-width: 560px;
+}
+
+/* Override MailerLite per integrarlo nel design */
+.ml-form-style-override .ml-embedded { background: transparent !important; }
+.ml-form-style-override .ml-form-embedContainer .ml-form-embedWrapper {
+  background: transparent !important;
+  border: none !important;
+  width: 100% !important;
+  max-width: 480px !important;
+}
+.ml-form-style-override .ml-form-embedContent { display: none !important; }
+.ml-form-style-override .ml-form-embedBody { padding: 0 !important; background: transparent !important; }
+.ml-form-style-override .ml-form-embedBody form { background: transparent !important; }
+.ml-form-style-override .ml-form-fieldRow input[type="email"],
+.ml-form-style-override .ml-form-fieldRow input[type="text"] {
+  background: rgba(247,243,236,0.05) !important;
+  color: var(--cream) !important;
+  border: 1px solid var(--border) !important;
+  padding: 16px 18px !important;
+  font-family: 'Cormorant Garamond', Georgia, serif !important;
+  font-size: 17px !important;
+  border-radius: 0 !important;
+  height: auto !important;
+  line-height: 1.5 !important;
+}
+.ml-form-style-override .ml-form-fieldRow input::placeholder { color: var(--warm-grey) !important; opacity: 0.7 !important; }
+.ml-form-style-override .ml-form-embedSubmit button[type="submit"] {
+  background: var(--gold) !important;
+  color: var(--black) !important;
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 18px 32px !important;
+  font-family: 'DM Mono', monospace !important;
+  font-size: 12px !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.22em !important;
+  text-transform: uppercase !important;
+  cursor: pointer;
+  transition: background 0.3s !important;
+  width: 100% !important;
+}
+.ml-form-style-override .ml-form-embedSubmit button[type="submit"]:hover { background: var(--gold-light) !important; }
+.ml-form-style-override .ml-form-checkboxRow,
+.ml-form-style-override .ml-form-embedPermissions {
+  color: rgba(247,243,236,0.7) !important;
+}
+.ml-form-style-override .ml-form-checkboxRow .label-description,
+.ml-form-style-override .ml-form-checkboxRow label,
+.ml-form-style-override .ml-form-checkboxRow label p,
+.ml-form-style-override .ml-form-embedPermissions p {
+  color: rgba(247,243,236,0.7) !important;
+  font-family: 'Cormorant Garamond', Georgia, serif !important;
+  font-size: 13px !important;
+  line-height: 1.6 !important;
+}
+.ml-form-style-override .ml-form-checkboxRow label a,
+.ml-form-style-override .ml-form-embedPermissions p a {
+  color: var(--gold) !important;
+}
+.ml-form-style-override .ml-form-successContent h4,
+.ml-form-style-override .ml-form-successContent p {
+  color: var(--cream) !important;
+  font-family: 'Cormorant Garamond', Georgia, serif !important;
+}
+
+/* fallback consenso lato sito (se non configurato in MailerLite) */
+.newsletter-consent {
+  margin-top: 16px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: rgba(247,243,236,0.6);
+  text-align: left;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.newsletter-consent a { color: var(--gold); border-bottom: 1px solid rgba(200,151,58,0.4); }
+
+/* ======================================
+   OFFERTA — 2 card grandi (Consulenze / Prodotti)
+   ====================================== */
+.offer {
+  background: linear-gradient(180deg, var(--black) 0%, #1a1612 100%);
+  padding: 110px 48px;
+}
+.offer-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.offer-card {
+  position: relative;
+  padding: 56px 48px;
+  display: flex;
+  flex-direction: column;
+  min-height: 420px;
+  transition: transform 0.3s, border-color 0.3s, background 0.3s;
+}
+.offer-card-primary {
+  background: var(--dark-surface);
+  border: 1px solid var(--gold);
+}
+.offer-card-primary:hover {
+  transform: translateY(-4px);
+  background: #1a1612;
+}
+.offer-card-ghost {
+  background: var(--dark-surface);
+  border: 1px solid var(--border);
+}
+.offer-card-ghost:hover {
+  transform: translateY(-4px);
+  border-color: var(--gold);
+}
+.offer-card-tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  display: inline-flex; align-items: center; gap: 12px;
+}
+.offer-card-tag::before {
+  content: ''; width: 24px; height: 1px; background: var(--gold);
+}
+.offer-card-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(34px, 4vw, 48px);
+  font-weight: 300;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  color: var(--cream);
+  margin-bottom: 28px;
+}
+.offer-card-title em {
+  font-style: italic;
+  color: var(--gold);
+  font-weight: 400;
+}
+.offer-card-desc {
+  font-size: clamp(16px, 1.3vw, 18px);
+  line-height: 1.75;
+  color: rgba(247,243,236,0.85);
+  font-weight: 300;
+  margin-bottom: 36px;
+  flex-grow: 1;
+}
+.offer-card-desc strong { color: var(--cream); font-weight: 500; }
+.offer-card-desc em { color: var(--gold); font-style: italic; }
+.offer-card-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-start;
+}
+.offer-card-link {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: var(--warm-grey);
+  text-transform: uppercase;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  padding: 4px 0;
+  transition: color 0.3s, border-color 0.3s;
+}
+.offer-card-link:hover {
+  color: var(--gold);
+  border-color: rgba(200,151,58,0.4);
+}
+
+@media (max-width: 880px) {
+  .offer { padding: 70px 24px; }
+  .offer-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .offer-card {
+    padding: 40px 32px;
+    min-height: auto;
+  }
+  .offer-card-title { margin-bottom: 22px; }
+  .offer-card-desc { margin-bottom: 28px; }
+}
+
+/* ======================================
+   FORM CONTATTI — layout 2 colonne grandi
+   ====================================== */
+.contact {
+  background: var(--dark-surface);
+  border-top: 1px solid var(--border);
+  padding: 110px 48px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.contact-left { padding-top: 8px; }
+.contact-title {
+  font-size: clamp(40px, 5vw, 64px);
+  font-weight: 300;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  margin: 16px 0 0;
+}
+.contact-title em {
+  font-style: italic;
+  color: var(--gold);
+  font-weight: 400;
+}
+.contact-info {
+  margin-top: 56px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+}
+.ci-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.ci-value {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 19px;
+  color: var(--cream);
+  margin-bottom: 28px;
+  line-height: 1.4;
+}
+.ci-value:last-child { margin-bottom: 0; }
+.ci-value a {
+  color: var(--cream);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 0.3s, border-color 0.3s;
+}
+.ci-value a:hover {
+  color: var(--gold);
+  border-color: rgba(200,151,58,0.4);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.form-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+.form-input, .form-select, .form-textarea {
+  background: rgba(247,243,236,0.03);
+  border: 1px solid var(--border);
+  padding: 16px 18px;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 18px;
+  color: var(--cream);
+  outline: none;
+  transition: border-color 0.3s;
+  width: 100%;
+  -webkit-appearance: none;
+}
+.form-input::placeholder, .form-textarea::placeholder {
+  color: var(--warm-grey);
+  opacity: 0.7;
+}
+.form-input:focus, .form-select:focus, .form-textarea:focus {
+  border-color: var(--gold);
+}
+.form-textarea {
+  resize: vertical;
+  min-height: 130px;
+  line-height: 1.55;
+}
+.form-select { cursor: pointer; }
+.form-select option { background: var(--black); color: var(--cream); }
+
+.form-consent {
+  margin: 8px 0 4px;
+}
+.consent-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  cursor: pointer;
+}
+.consent-label input[type="checkbox"] {
+  margin-top: 5px;
+  flex-shrink: 0;
+  accent-color: var(--gold);
+  cursor: pointer;
+}
+.consent-label span {
+  font-size: 14px;
+  line-height: 1.55;
+  color: rgba(247,243,236,0.65);
+  font-weight: 300;
+}
+.consent-label a {
+  color: var(--gold);
+  border-bottom: 1px solid rgba(200,151,58,0.4);
+}
+
+.btn-contact {
+  width: 100%;
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--black);
+  background: var(--gold);
+  border: none;
+  padding: 22px 24px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  margin-top: 8px;
+  font-weight: 400;
+}
+.btn-contact:hover {
+  background: var(--gold-light);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 880px) {
+  .contact {
+    grid-template-columns: 1fr;
+    padding: 70px 24px;
+    gap: 50px;
+  }
+  .contact-info { margin-top: 40px; padding-top: 24px; }
+}
+
+/* ======================================
+   FOOTER
+   ====================================== */
+footer {
+  background: #0a0908;
+  border-top: 1px solid var(--border);
+  padding: 80px 48px 32px;
+}
+.footer-top {
+  max-width: 1200px; margin: 0 auto 56px;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+.footer-brand { max-width: 380px; }
+.footer-brand-name {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 22px;
+  font-weight: 300;
+  letter-spacing: 0.22em;
+  margin-bottom: 20px;
+}
+.footer-brand-name span { color: var(--gold); }
+.footer-tagline {
+  font-style: italic;
+  color: rgba(247,243,236,0.7);
+  font-size: 16px;
+  line-height: 1.65;
+  margin-bottom: 28px;
+}
+.footer-social { display: flex; gap: 12px; }
+.footer-social a {
+  width: 42px; height: 42px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border: 1px solid var(--border);
+  color: rgba(247,243,236,0.7);
+  transition: color 0.3s, border-color 0.3s, background 0.3s;
+  border-radius: 50%;
+}
+.footer-social a svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+.footer-social a:hover {
+  color: var(--black);
+  border-color: var(--gold);
+  background: var(--gold);
+}
+.footer-col { padding-top: 6px; }
+.footer-col-title {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 22px;
+}
+.footer-links { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.footer-links a {
+  color: rgba(247,243,236,0.72);
+  font-size: 16px;
+  transition: color 0.3s;
+}
+.footer-links a:hover { color: var(--gold); }
+.footer-bottom {
+  max-width: 1200px; margin: 0 auto;
+  padding-top: 28px;
+  border-top: 1px solid rgba(200,151,58,0.1);
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 16px;
+}
+.footer-copy {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--warm-grey);
+  opacity: 0.6;
+}
+.footer-legal { display: flex; gap: 24px; flex-wrap: wrap; }
+.footer-legal a {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--warm-grey);
+  opacity: 0.7;
+  transition: color 0.3s, opacity 0.3s;
+}
+.footer-legal a:hover { color: var(--gold); opacity: 1; }
+
+@media (max-width: 880px) {
+  footer { padding: 50px 24px 24px; }
+  .footer-top { grid-template-columns: 1fr; gap: 36px; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; }
+}
+
+/* ======================================
+   COOKIE BANNER
+   ====================================== */
+.cookie-banner {
+  position: fixed; bottom: 24px; left: 24px; right: 24px;
+  max-width: 720px; margin: 0 auto;
+  background: rgba(20,18,16,0.96);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  padding: 22px 26px;
+  z-index: 9000;
+  display: none;
+  align-items: center; gap: 22px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.6);
+  flex-wrap: wrap;
+}
+.cookie-banner.visible { display: flex; animation: cookieSlideUp 0.4s ease-out; }
+@keyframes cookieSlideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+.cookie-text {
+  font-size: 15px; line-height: 1.55;
+  color: rgba(247,243,236,0.85);
+  flex: 1; min-width: 240px;
+}
+.cookie-text strong { color: var(--cream); font-weight: 600; }
+.cookie-text a { color: var(--gold); border-bottom: 1px solid rgba(200,151,58,0.4); }
+.cookie-btn {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--black);
+  background: var(--gold);
+  border: none; cursor: pointer;
+  padding: 12px 24px;
+  transition: background 0.3s;
+}
+.cookie-btn:hover { background: var(--gold-light); }
+@media (max-width: 600px) {
+  .cookie-banner { left: 12px; right: 12px; bottom: 12px; padding: 18px; gap: 14px; }
+  .cookie-text { font-size: 14px; }
+  .cookie-btn { width: 100%; padding: 14px; }
+}
+
+/* utility */
+.text-center { text-align: center; }
+</style>
+</head>
+<body>
+
+<!-- ====== NAV ====== -->
+<nav class="nav">
+  <a href="index.html" class="nav-logo">BISCA<span>LAB</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="consulenze.html">Consulenze</a></li>
+    <li><a href="prodotti.html">Prodotti</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contatti.html">Contatti</a></li>
+  </ul>
+  <button class="nav-toggle" id="navToggle" aria-label="Apri menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" class="active">Home</a>
+  <a href="consulenze.html">Consulenze</a>
+  <a href="prodotti.html">Prodotti</a>
+  <a href="blog.html">Blog</a>
+  <a href="contatti.html">Contatti</a>
+</div>
+
+<!-- ====== HERO ====== -->
+<section class="hero">
+  <div class="hero-inner">
+    <span class="hero-tag">Chi è Bisca? Da Torino a Bangkok</span>
+    <h1 class="hero-title">Non smettere<br>di <em>costruire</em>.</h1>
+
+    <p class="hero-lead">Sono <strong>Bisca</strong>. Da Bangkok aiuto gli italiani che vogliono viaggiare, trasferirsi, investire o aprire un'attività in Thailandia. <em>Specializzato nelle attività food.</em></p>
+
+    <div class="hero-cta-grid">
+      <a href="consulenze.html" class="cta-card">
+        <span class="cta-card-arrow">→</span>
+        <span class="cta-card-title">Le mie consulenze</span>
+        <span class="cta-card-sub">Scopri come posso aiutarti</span>
+      </a>
+      <a href="prodotti.html" class="cta-card cta-card-ghost">
+        <span class="cta-card-arrow">→</span>
+        <span class="cta-card-title">Prodotti digitali</span>
+        <span class="cta-card-sub">Prodotti selezionati per aiutarti al meglio</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ====== CHI SONO ====== -->
+<section class="about" id="chi-sono">
+  <div class="about-inner">
+    <div class="about-photo-wrap">
+      <div class="about-photo">
+        <img src="IMG_5551%202.JPG" alt="Carmine Bisogno — Bisca, da Bangkok" onerror="this.style.display='none'; this.parentElement.classList.add('photo-fallback');">
+        <span class="photo-fallback-text">Foto in arrivo</span>
+      </div>
+      <span class="about-photo-caption">Bangkok, 2026</span>
+    </div>
+
+    <div class="about-text-wrap">
+      <span class="section-eyebrow" style="text-align:left;">Chi sono</span>
+      <h2 class="about-title">Carmine Bisogno,<br><em>per tutti Bisca.</em></h2>
+
+      <div class="about-bio">
+        <p>Sono cresciuto dentro un ristorante di famiglia, tra teglie e impasti — ho iniziato a lavorare giovane, ho studiato, sperimentato, sbagliato. Poi ho aperto <strong>Don Ciccio</strong> a Torino nel 2015: oggi è riconosciuta tra le migliori pizzerie d'Italia dalla classifica <em>50 Top Pizza</em>.</p>
+
+        <p>Parallelamente ho iniziato a viaggiare. Giappone, Vietnam, Thailandia. Ed è in Thailandia che mi sono fermato. Non per caso — quel paese ha smesso di essere una destinazione e ha iniziato a essere <em>una domanda</em>. Un viaggio di due settimane è diventato un mese, poi due, poi tre.</p>
+
+        <p>Oggi vivo a Bangkok — città caotica, contraddittoria, che <strong>amo e odio allo stesso tempo</strong>. Aiuto gli italiani che vogliono capire davvero questo posto: chi vuole viaggiarci, chi vuole trasferirsi, chi vuole aprirci un'attività o investire.</p>
+      </div>
+
+      <div class="about-creds">
+        <div class="cred-item">
+          <span class="cred-num">50 Top</span>
+          <span class="cred-label">Pizza Italia</span>
+        </div>
+        <div class="cred-item">
+          <span class="cred-num">3+</span>
+          <span class="cred-label">Anni a Bangkok</span>
+        </div>
+        <div class="cred-item">
+          <span class="cred-num">13K+</span>
+          <span class="cred-label">Follower Instagram</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== CASI STUDIO ====== -->
+<section class="cases">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-eyebrow">Casi studio</span>
+      <h2 class="section-title">Persone vere,<br>scelte <em>vere.</em></h2>
+    </div>
+
+    <div class="cases-grid">
+      <div class="case">
+        <div class="case-num">01 · Trasferimento</div>
+        <div class="case-meta">M., 38 anni · Milano → Chiang Mai</div>
+        <p class="case-quote">Volevo trasferirmi in Thailandia da due anni ma mi bloccavo su tutto: visto, casa, sanità, fisco. Ho prenotato la consulenza sapendo già di non sapere niente. In quattro mesi ero a Chiang Mai con visto in regola e affitto firmato.</p>
+        <div class="case-result">→ Trasferito in 4 mesi</div>
+      </div>
+
+      <div class="case">
+        <div class="case-num">02 · Investimento</div>
+        <div class="case-meta">G., 51 anni · Roma · Investimento immobiliare</div>
+        <p class="case-quote">Stavo per comprare un appartamento a Phuket vista mare a un prezzo "occasione". Bisca mi ha detto i tre motivi per cui non dovevo. Aveva ragione. Mi ha poi indicato cosa cercare invece. Sei mesi dopo ho chiuso l'operazione vera.</p>
+        <div class="case-result">→ Evitato un errore da 180k€</div>
+      </div>
+
+      <div class="case">
+        <div class="case-num">03 · Apertura attività</div>
+        <div class="case-meta">L. e V. · 34 e 32 anni · Pizzeria a Bangkok</div>
+        <p class="case-quote">Volevamo aprire una pizzeria a Sukhumvit. Bisca ci ha smontato il business plan in tre call, ricostruito la location, suggerito il fornitore di farina, presentato il commercialista. Apertura senza intoppi, break-even al sesto mese.</p>
+        <div class="case-result">→ Break-even al 6° mese</div>
+      </div>
+    </div>
+
+    <p class="cases-disclaimer">*I casi sopra sono rappresentativi di consulenze realmente svolte. Nomi, età e dettagli identificativi sono stati modificati per tutelare la privacy.</p>
+  </div>
+</section>
+
+<!-- ====== NEWSLETTER (MailerLite) ====== -->
+<section class="newsletter">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-eyebrow">Newsletter</span>
+      <h2 class="section-title">Iscriviti alla<br><em>newsletter.</em></h2>
+      <p class="newsletter-desc">Per rimanere aggiornato su tutto quello che ha senso sapere se ami — o sogni — la Thailandia. Che tu sia un viaggiatore, voglia trasferirti, investire o sia <em>semplicemente un sognatore</em>: avere le informazioni giuste è essenziale.</p>
+    </div>
+
+    <div class="newsletter-wrap">
+      <div class="ml-form-style-override">
+        <div class="ml-embedded" data-form="wamvxR"></div>
+      </div>
+      <p class="newsletter-consent">Iscrivendoti accetti la <a href="privacy-policy.html">Privacy Policy</a>. Riceverai un'email di conferma per attivare l'iscrizione (double opt-in). Puoi cancellarti in qualsiasi momento.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ====== OFFERTA: 2 card grandi (Consulenze / Prodotti) ====== -->
+<section class="offer">
+  <div class="section-inner">
+    <div class="offer-grid">
+
+      <article class="offer-card offer-card-primary">
+        <span class="offer-card-tag">Consulenze 1:1</span>
+        <h3 class="offer-card-title">Lavoriamo<br><em>insieme.</em></h3>
+        <p class="offer-card-desc"><strong>Lavoriamo insieme</strong>, faccia a faccia. Che tu voglia viaggiare, trasferirti, investire — o semplicemente avere <em>le risposte alle tue domande</em>. Consulenze 1:1 personalizzabili al 100% in base alle tue esigenze.</p>
+        <div class="offer-card-actions">
+          <a href="consulenze.html" class="btn btn-primary">Vedi i miei pacchetti →</a>
+          <a href="contatti.html" class="offer-card-link">oppure scrivimi per avere più info →</a>
+        </div>
+      </article>
+
+      <article class="offer-card offer-card-ghost">
+        <span class="offer-card-tag">Prodotti digitali</span>
+        <h3 class="offer-card-title">Guide e kit<br><em>che ho creato io.</em></h3>
+        <p class="offer-card-desc">Qui trovi le mie <strong>guide e i miei kit</strong>. Sono prodotti nati per rispondere a un'esigenza concreta — <em>molti non esistevano</em> per il pubblico italiano, e quindi li ho creati io e li ho messi a tua disposizione.</p>
+        <div class="offer-card-actions">
+          <a href="prodotti.html" class="btn btn-primary">Vedi tutti i prodotti →</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ====== FORM CONTATTI ====== -->
+<section class="contact" id="contatti">
+  <div class="contact-left">
+    <span class="section-eyebrow" style="text-align:left;">Contatti</span>
+    <h2 class="contact-title">Hai un progetto.<br>Parliamone <em>adesso.</em></h2>
+    <div class="contact-info">
+      <div class="ci-label">Email</div>
+      <div class="ci-value"><a href="mailto:bisca@biscalab.com">bisca@biscalab.com</a></div>
+      <div class="ci-label">Instagram</div>
+      <div class="ci-value"><a href="https://www.instagram.com/iam.bisca" target="_blank" rel="noopener">@iam.bisca</a></div>
+      <div class="ci-label">Base operativa</div>
+      <div class="ci-value">Bangkok, Sukhumvit · Thailandia</div>
+    </div>
+  </div>
+
+  <form class="contact-form" action="https://formspree.io/f/xnjlookw" method="POST">
+    <div class="form-group">
+      <label class="form-label">Nome completo</label>
+      <input class="form-input" type="text" name="nome" placeholder="Il tuo nome" required>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Email</label>
+      <input class="form-input" type="email" name="email" placeholder="tua@email.com" required>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Ti interessa</label>
+      <select class="form-select" name="interesse">
+        <option value="">Seleziona un'area</option>
+        <option>Trasferimento in Thailandia</option>
+        <option>Investimenti immobiliari SEA</option>
+        <option>Apertura attività / Business</option>
+        <option>Consulenza Food & Pizzeria</option>
+        <option>Viaggio su misura</option>
+        <option>Collaborazione / Brand</option>
+        <option>Altro</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Raccontami la tua situazione</label>
+      <textarea class="form-textarea" name="messaggio" placeholder="Dove sei adesso, cosa stai valutando, cosa ti frena..."></textarea>
+    </div>
+    <div class="form-consent">
+      <label class="consent-label">
+        <input type="checkbox" name="consenso_privacy" required>
+        <span>Ho letto la <a href="privacy-policy.html" target="_blank">Privacy Policy</a> e acconsento al trattamento dei miei dati per ricevere una risposta alla mia richiesta.</span>
+      </label>
+    </div>
+    <button class="btn-contact" type="submit">Invia richiesta →</button>
+  </form>
+</section>
+
+<!-- ====== FOOTER ====== -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-brand-name">BISCA<span>LAB</span></div>
+      <p class="footer-tagline">Aiuto gli italiani a capire davvero la Thailandia. Da Bangkok.</p>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/iam.bisca" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+          </svg>
+        </a>
+        <a href="https://www.tiktok.com/@iam.bisca" target="_blank" rel="noopener" aria-label="TikTok">
+          <svg viewBox="0 0 24 24" fill="currentColor" stroke="none">
+            <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43V8.95a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.84-.38z"/>
+          </svg>
+        </a>
+        <a href="https://www.youtube.com/@iam.bisca" target="_blank" rel="noopener" aria-label="YouTube">
+          <svg viewBox="0 0 24 24" fill="currentColor" stroke="none">
+            <path d="M23.498 6.186a2.999 2.999 0 0 0-2.111-2.124C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.387.517A2.999 2.999 0 0 0 .502 6.186C0 8.082 0 12 0 12s0 3.918.502 5.814a2.999 2.999 0 0 0 2.111 2.124c1.882.517 9.387.517 9.387.517s7.505 0 9.387-.517a2.999 2.999 0 0 0 2.111-2.124C24 15.918 24 12 24 12s0-3.918-.502-5.814zM9.546 15.568V8.432L15.818 12l-6.272 3.568z"/>
+          </svg>
+        </a>
+        <a href="https://www.facebook.com/share/1H1JxeULYV/" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor" stroke="none">
+            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+        </svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <div class="footer-col-title">Esplora</div>
+      <ul class="footer-links">
+        <li><a href="consulenze.html">Consulenze</a></li>
+        <li><a href="prodotti.html">Prodotti</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contatti.html">Contatti</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <div class="footer-col-title">Legal</div>
+      <ul class="footer-links">
+        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+        <li><a href="cookie-policy.html">Cookie Policy</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 BiscaLab · Carmine Bisogno · P.IVA 11414840014</span>
+    <span class="footer-copy">Bangkok, Thailand</span>
+  </div>
+</footer>
+
+<!-- ====== COOKIE BANNER ====== -->
+<div id="cookie-banner" class="cookie-banner" role="dialog" aria-label="Avviso cookie" aria-live="polite">
+  <div class="cookie-text">
+    <strong>Cookie & Privacy.</strong> Questo sito usa solo cookie tecnici, necessari al funzionamento. Non uso strumenti di profilazione né di marketing. Per i dettagli leggi la <a href="cookie-policy.html">Cookie Policy</a> e la <a href="privacy-policy.html">Privacy Policy</a>.
+  </div>
+  <button id="cookie-accept" class="cookie-btn" type="button">Ho capito</button>
+</div>
+
+<script>
+// Mobile menu toggle
+const navToggle = document.getElementById('navToggle');
+const mobileMenu = document.getElementById('mobileMenu');
+navToggle.addEventListener('click', function() {
+  this.classList.toggle('active');
+  mobileMenu.classList.toggle('open');
+  document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+});
+document.querySelectorAll('.mobile-menu a').forEach(a => {
+  a.addEventListener('click', () => {
+    navToggle.classList.remove('active');
+    mobileMenu.classList.remove('open');
+    document.body.style.overflow = '';
+  });
+});
+
+// Cookie banner
+(function() {
+  var KEY = 'biscalab_cookie_ack_v1';
+  var banner = document.getElementById('cookie-banner');
+  var btn = document.getElementById('cookie-accept');
+  try {
+    if (!localStorage.getItem(KEY)) {
+      setTimeout(function() { banner.classList.add('visible'); }, 800);
+    }
+  } catch(e) {
+    setTimeout(function() { banner.classList.add('visible'); }, 800);
+  }
+  btn.addEventListener('click', function() {
+    banner.classList.remove('visible');
+    try { localStorage.setItem(KEY, '1'); } catch(e) {}
+  });
+})();
+</script>
+
+</body>
+</html>
